@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="AI Code Debugger - Instantly find and fix errors in your code with intelligent analysis">
+    <title>AI Code Debugger | Smart Error Detection</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Animated Background Particles -->
+    <div class="bg-particles" id="bgParticles"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">
+                <div class="logo-icon">
+                    <i class="fas fa-bug"></i>
+                    <div class="logo-pulse"></div>
+                </div>
+                <span class="logo-text">Debug<span class="logo-accent">AI</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link active" data-section="home"><i class="fas fa-home"></i> Home</a>
+                </li>
+                <li><a href="#debugger" class="nav-link" data-section="debugger"><i class="fas fa-code"></i>
+                        Debugger</a></li>
+                <li><a href="#features" class="nav-link" data-section="features"><i class="fas fa-star"></i>
+                        Features</a></li>
+                <li><a href="#about" class="nav-link" data-section="about"><i class="fas fa-info-circle"></i> About</a>
+                </li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-bolt"></i> AI-Powered Code Analysis
+            </div>
+            <h1 class="hero-title">
+                Find & Fix Bugs<br>
+                <span class="gradient-text">In Seconds</span>
+            </h1>
+            <p class="hero-subtitle">
+                Paste your code, select the language, and let our intelligent debugger
+                analyze it for errors, warnings, and improvements instantly.
+            </p>
+            <div class="hero-actions">
+                <a href="#debugger" class="btn btn-primary" id="heroStartBtn">
+                    <i class="fas fa-rocket"></i> Start Debugging
+                </a>
+                <a href="#features" class="btn btn-outline">
+                    <i class="fas fa-play"></i> Learn More
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number" data-count="15">0</span><span class="stat-suffix">+</span>
+                    <span class="stat-label">Languages</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number" data-count="200">0</span><span class="stat-suffix">+</span>
+                    <span class="stat-label">Error Patterns</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number" data-count="99">0</span><span class="stat-suffix">%</span>
+                    <span class="stat-label">Accuracy</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="code-window">
+                <div class="window-header">
+                    <div class="window-dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <span class="window-title">example.py</span>
+                </div>
+                <div class="window-body">
+                    <pre class="code-preview"><code id="heroCode"></code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Debugger Section -->
+    <section class="debugger-section" id="debugger">
+        <div class="section-header">
+            <h2 class="section-title"><i class="fas fa-terminal"></i> Code Debugger</h2>
+            <p class="section-desc">Paste your code below and click "Analyze Code" to find errors & improvements</p>
+        </div>
+
+        <div class="debugger-container">
+            <!-- Editor Panel -->
+            <div class="editor-panel">
+                <div class="panel-header">
+                    <div class="panel-title">
+                        <i class="fas fa-edit"></i> Code Editor
+                    </div>
+                    <div class="editor-controls">
+                        <select id="languageSelect" class="lang-select">
+                            <option value="javascript">JavaScript</option>
+                            <option value="python">Python</option>
+                            <option value="java">Java</option>
+                            <option value="cpp">C++</option>
+                            <option value="c">C</option>
+                            <option value="csharp">C#</option>
+                            <option value="html">HTML</option>
+                            <option value="css">CSS</option>
+                            <option value="php">PHP</option>
+                            <option value="ruby">Ruby</option>
+                            <option value="go">Go</option>
+                            <option value="rust">Rust</option>
+                            <option value="swift">Swift</option>
+                            <option value="kotlin">Kotlin</option>
+                            <option value="typescript">TypeScript</option>
+                        </select>
+                        <button class="btn-icon" id="clearBtn" title="Clear Code">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                        <button class="btn-icon" id="copyBtn" title="Copy Code">
+                            <i class="fas fa-copy"></i>
+                        </button>
+                        <button class="btn-icon" id="sampleBtn" title="Load Sample">
+                            <i class="fas fa-flask"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="editor-wrapper">
+                    <div class="line-numbers" id="lineNumbers"></div>
+                    <textarea id="codeEditor" class="code-editor"
+                        placeholder="// Paste your code here...&#10;// Language is auto-detected!&#10;// Click 'Analyze Code' to find errors"
+                        spellcheck="false"></textarea>
+                </div>
+                <div class="editor-footer">
+                    <div class="footer-info">
+                        <span id="lineCount">Lines: 0</span>
+                        <span id="charCount">Chars: 0</span>
+                    </div>
+                    <button class="btn btn-analyze" id="analyzeBtn">
+                        <i class="fas fa-search-plus"></i> Analyze Code
+                        <div class="btn-shimmer"></div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Results Panel -->
+            <div class="results-panel" id="resultsPanel">
+                <div class="panel-header">
+                    <div class="panel-title">
+                        <i class="fas fa-clipboard-check"></i> Analysis Results
+                    </div>
+                    <div class="result-tabs">
+                        <button class="tab-btn active" data-tab="all">All</button>
+                        <button class="tab-btn" data-tab="errors">Errors</button>
+                        <button class="tab-btn" data-tab="warnings">Warnings</button>
+                        <button class="tab-btn" data-tab="info">Info</button>
+                    </div>
+                </div>
+
+                <!-- Summary Bar -->
+                <div class="results-summary" id="resultsSummary" style="display:none;">
+                    <div class="summary-item errors">
+                        <i class="fas fa-times-circle"></i>
+                        <span id="errorCount">0</span> Errors
+                    </div>
+                    <div class="summary-item warnings">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span id="warningCount">0</span> Warnings
+                    </div>
+                    <div class="summary-item infos">
+                        <i class="fas fa-info-circle"></i>
+                        <span id="infoCount">0</span> Info
+                    </div>
+                    <div class="summary-item success" id="successBadge" style="display:none;">
+                        <i class="fas fa-check-circle"></i> All Clear!
+                    </div>
+                </div>
+
+                <!-- Results List -->
+                <div class="results-list" id="resultsList">
+                    <div class="empty-state" id="emptyState">
+                        <div class="empty-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>Ready to Debug</h3>
+                        <p>Paste your code and click "Analyze Code" to see results here.</p>
+                    </div>
+                </div>
+
+                <!-- Loading State -->
+                <div class="loading-state" id="loadingState" style="display:none;">
+                    <div class="loader">
+                        <div class="loader-ring"></div>
+                        <div class="loader-ring"></div>
+                        <div class="loader-ring"></div>
+                    </div>
+                    <p>Analyzing your code...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section" id="features">
+        <div class="section-header">
+            <h2 class="section-title"><i class="fas fa-magic"></i> Powerful Features</h2>
+            <p class="section-desc">Everything you need to write cleaner, bug-free code</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+                <h3>Instant Analysis</h3>
+                <p>Get real-time error detection and code analysis in milliseconds. No waiting, no delays.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-language"></i></div>
+                <h3>15+ Languages</h3>
+                <p>Support for JavaScript, Python, Java, C++, Go, Rust, and many more popular languages.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-lightbulb"></i></div>
+                <h3>Smart Suggestions</h3>
+                <p>Get intelligent fix suggestions with explanations to help you learn and improve.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                <h3>Security Checks</h3>
+                <p>Detect common security vulnerabilities and unsafe coding practices automatically.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+                <h3>Code Quality</h3>
+                <p>Analyze code complexity, style violations, and best practice adherence.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-lock"></i></div>
+                <h3>100% Private</h3>
+                <p>Your code never leaves your browser. All analysis is performed locally.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="section-header">
+            <h2 class="section-title"><i class="fas fa-user-circle"></i> About & Contact</h2>
+            <p class="section-desc">Get in touch with the developer</p>
+        </div>
+        <div class="about-container">
+            <div class="about-card">
+                <div class="about-avatar">
+                    <div class="avatar-ring">
+                        <i class="fas fa-user-astronaut"></i>
+                    </div>
+                    <div class="avatar-glow"></div>
+                </div>
+                <h3 class="about-name">Mohit</h3>
+                <p class="about-bio">
+                    Passionate about building intelligent developer tools that make coding easier,
+                    faster, and more enjoyable. DebugAI is designed to help developers of all
+                    levels write better, bug-free code.
+                </p>
+                <div class="contact-cards">
+                    <div class="contact-card">
+                        <div class="contact-icon email-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <span class="contact-label">Email</span>
+                            <a href="mailto:mohit381330@gmail.com" class="contact-value">mohit381330@gmail.com</a>
+                        </div>
+                        <button class="copy-contact" data-copy="mohit381330@gmail.com" title="Copy email">
+                            <i class="fas fa-copy"></i>
+                        </button>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon phone-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <span class="contact-label">Contact</span>
+                            <a href="tel:7340381330" class="contact-value">7340381330</a>
+                        </div>
+                        <button class="copy-contact" data-copy="7340381330" title="Copy number">
+                            <i class="fas fa-copy"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="about-tech">
+                    <span class="tech-tag"><i class="fab fa-html5"></i> HTML5</span>
+                    <span class="tech-tag"><i class="fab fa-css3-alt"></i> CSS3</span>
+                    <span class="tech-tag"><i class="fab fa-js"></i> JavaScript</span>
+                    <span class="tech-tag"><i class="fas fa-brain"></i> AI</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <i class="fas fa-bug"></i> Debug<span>AI</span>
+            </div>
+            <p>&copy; 2026 DebugAI. Built with <i class="fas fa-heart" style="color:#ff6b6b;"></i> by Mohit</p>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toastMessage">Copied to clipboard!</span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
