@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AssignMint — Engineering Assignment Platform</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    :root {
+      --bg:#050b18; --surface:#0d1526; --card:#111e35;
+      --accent:#00e5ff; --accent2:#7c3aed; --accent3:#f59e0b;
+      --green:#00f5a0; --red:#ff4d6d;
+      --text:#dde6f5; --muted:#6b7fa3; --border:rgba(0,229,255,0.10);
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;overflow-x:hidden;}
+    body::before{
+      content:'';position:fixed;inset:0;z-index:-1;
+      background:
+        radial-gradient(ellipse 70% 55% at 15% 5%, rgba(124,58,237,.22) 0%,transparent 55%),
+        radial-gradient(ellipse 60% 50% at 85% 85%,rgba(0,229,255,.14) 0%,transparent 55%),
+        radial-gradient(ellipse 45% 45% at 55% 45%,rgba(0,245,160,.07) 0%,transparent 60%);
+      animation:meshPulse 14s ease-in-out infinite alternate;
+    }
+    @keyframes meshPulse{0%{filter:hue-rotate(0deg) brightness(1);}100%{filter:hue-rotate(25deg) brightness(1.08);}}
+    @keyframes fadeDown{from{opacity:0;transform:translateY(-20px);}to{opacity:1;transform:translateY(0);}}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+    @keyframes floatCard{0%,100%{transform:translateY(0);}50%{transform:translateY(-16px);}}
+    @keyframes ringPulse{0%,100%{transform:scale(1);opacity:.5;}50%{transform:scale(1.12);opacity:.15;}}
+    @keyframes growBar{from{width:0!important;}}
+
+    em{font-style:normal;background:linear-gradient(135deg,var(--accent),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+
+    .badge{display:inline-flex;align-items:center;gap:.4rem;background:rgba(0,229,255,.07);border:1px solid rgba(0,229,255,.2);border-radius:50px;padding:.3rem 1rem;font-size:.78rem;color:var(--accent);font-weight:600;letter-spacing:.6px;margin-bottom:1.2rem;}
+    .section-header{text-align:center;margin-bottom:3.5rem;}
+    .section-header h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:900;margin-bottom:.8rem;}
+    .section-header p{color:var(--muted);font-size:1rem;}
+
+    .btn-primary{background:linear-gradient(135deg,var(--accent2),var(--accent));color:#fff;padding:.75rem 2rem;border-radius:50px;font-weight:700;font-size:.95rem;border:none;cursor:pointer;transition:transform .2s,box-shadow .2s;display:inline-flex;align-items:center;gap:.5rem;}
+    .btn-primary:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(124,58,237,.4);}
+    .btn-primary.w-full{width:100%;justify-content:center;}
+    .btn-outline{background:transparent;color:var(--accent);padding:.75rem 2rem;border-radius:50px;font-weight:600;font-size:.95rem;border:1px solid rgba(0,229,255,.35);cursor:pointer;transition:background .2s,transform .2s;}
+    .btn-outline:hover{background:rgba(0,229,255,.07);transform:translateY(-3px);}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;align-items:center;justify-content:space-between;padding:1rem 5%;background:rgba(5,11,24,.85);backdrop-filter:blur(22px);border-bottom:1px solid var(--border);transition:padding .3s;}
+    nav.scrolled{padding:.7rem 5%;}
+    .logo{font-family:'Playfair Display',serif;font-size:1.65rem;font-weight:900;color:var(--accent);letter-spacing:-1px;}
+    .logo span{color:var(--accent2);}
+    nav ul{list-style:none;display:flex;gap:2rem;}
+    nav ul a{text-decoration:none;color:var(--muted);font-size:.88rem;font-weight:500;transition:color .25s;}
+    nav ul a:hover{color:var(--accent);}
+    .nav-cta{background:linear-gradient(135deg,var(--accent2),var(--accent));color:#fff;padding:.5rem 1.4rem;border-radius:50px;font-weight:600;font-size:.88rem;border:none;cursor:pointer;transition:transform .2s,box-shadow .2s;}
+    .nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,229,255,.3);}
+    .hamburger{display:none;font-size:1.4rem;color:var(--accent);cursor:pointer;}
+
+    /* HERO */
+    .hero{min-height:100vh;display:flex;align-items:center;justify-content:space-between;padding:7rem 5% 4rem;gap:3rem;flex-wrap:wrap;}
+    .hero-left{max-width:560px;}
+    .hero-left .badge{animation:fadeDown .7s ease both;}
+    .hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,5vw,3.8rem);font-weight:900;line-height:1.12;margin-bottom:1.2rem;animation:fadeDown .7s .1s ease both;}
+    .hero p{color:var(--muted);font-size:1.05rem;line-height:1.75;margin-bottom:2rem;animation:fadeDown .7s .2s ease both;}
+    .hero-btns{display:flex;gap:1rem;flex-wrap:wrap;animation:fadeDown .7s .3s ease both;}
+    .hero-stats{display:flex;gap:2.5rem;margin-top:2.5rem;animation:fadeDown .7s .45s ease both;}
+    .stat-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:var(--accent);}
+    .stat-label{font-size:.76rem;color:var(--muted);margin-top:.1rem;letter-spacing:.3px;}
+
+    .hero-right{flex-shrink:0;animation:floatCard 6s ease-in-out infinite;}
+    .hero-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:1.8rem;width:310px;box-shadow:0 30px 60px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.04);}
+    .hc-header{display:flex;align-items:center;gap:.45rem;margin-bottom:1.4rem;font-size:.8rem;color:var(--muted);}
+    .hc-dot{width:10px;height:10px;border-radius:50%;}
+    .hc-dot.red{background:#ff4d6d;}.hc-dot.yellow{background:#f59e0b;}.hc-dot.green{background:#00f5a0;}
+    .hc-header span{margin-left:.4rem;font-weight:500;}
+    .hc-subject{display:flex;align-items:center;gap:.9rem;background:var(--surface);border-radius:12px;padding:.85rem 1rem;margin-bottom:.7rem;border:1px solid rgba(255,255,255,.04);transition:background .2s;}
+    .hc-subject:hover{background:rgba(0,229,255,.04);}
+    .hc-subject>i{font-size:1.2rem;color:var(--accent);width:32px;text-align:center;flex-shrink:0;}
+    .hc-name{font-size:.88rem;font-weight:600;}.hc-branch{font-size:.73rem;color:var(--muted);margin-top:.1rem;}
+    .tag{margin-left:auto;font-size:.68rem;font-weight:700;padding:.25rem .65rem;border-radius:50px;white-space:nowrap;flex-shrink:0;}
+    .tag.due{background:rgba(245,158,11,.15);color:#f59e0b;}.tag.done{background:rgba(0,245,160,.15);color:#00f5a0;}.tag.pending{background:rgba(255,77,109,.15);color:#ff4d6d;}
+    .hc-progress{margin-top:1rem;}
+    .hp-label{display:flex;justify-content:space-between;font-size:.78rem;color:var(--muted);margin-bottom:.5rem;}
+    .hp-bar{background:rgba(255,255,255,.06);border-radius:50px;height:6px;overflow:hidden;}
+    .hp-fill{height:100%;background:linear-gradient(90deg,var(--accent2),var(--accent));border-radius:50px;animation:growBar 1.5s 1s ease both;}
+
+    /* SUBJECTS */
+    .subjects-section{padding:6rem 5%;background:rgba(13,21,38,.4);}
+    .branch-tabs{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center;margin-bottom:2.5rem;}
+    .tab{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07);color:var(--muted);padding:.45rem 1.2rem;border-radius:50px;cursor:pointer;font-size:.84rem;font-weight:500;transition:all .2s;font-family:'DM Sans',sans-serif;}
+    .tab:hover,.tab.active{background:rgba(0,229,255,.12);border-color:rgba(0,229,255,.35);color:var(--accent);}
+    .subjects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.4rem;}
+    .subject-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.5rem;transition:transform .25s,box-shadow .25s,border-color .25s;cursor:pointer;animation:fadeUp .5s ease both;}
+    .subject-card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,0,0,.4);border-color:rgba(0,229,255,.25);}
+    .sc-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;}
+    .sc-icon{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;}
+    .sc-sem{font-size:.72rem;color:var(--muted);background:rgba(255,255,255,.06);padding:.2rem .6rem;border-radius:50px;}
+    .sc-name{font-size:1rem;font-weight:700;margin-bottom:.3rem;}
+    .sc-branch{font-size:.78rem;color:var(--muted);margin-bottom:1rem;}
+    .sc-meta{display:flex;justify-content:space-between;font-size:.75rem;color:var(--muted);padding-top:1rem;border-top:1px solid rgba(255,255,255,.05);}
+    .sc-meta span{display:flex;align-items:center;gap:.35rem;}
+
+    /* FEATURES */
+    .features-section{padding:6rem 5%;}
+    .features-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1.4rem;}
+    .feature-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;transition:transform .25s,box-shadow .25s;}
+    .feature-card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,0,0,.4);}
+    .feature-icon{width:50px;height:50px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:1.2rem;}
+    .feature-card h3{font-size:1.05rem;font-weight:700;margin-bottom:.6rem;}
+    .feature-card p{color:var(--muted);font-size:.88rem;line-height:1.65;}
+
+    /* ABOUT */
+    .about-section{padding:6rem 5%;background:linear-gradient(135deg,rgba(124,58,237,.08) 0%,rgba(0,229,255,.05) 100%);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+    .about-inner{display:flex;align-items:center;gap:5rem;flex-wrap:wrap;max-width:1100px;margin:0 auto;}
+    .about-visual{position:relative;flex-shrink:0;width:220px;height:220px;display:flex;align-items:center;justify-content:center;}
+    .av-circle{width:140px;height:140px;border-radius:50%;background:linear-gradient(135deg,var(--accent2),var(--accent));display:flex;align-items:center;justify-content:center;font-size:3.5rem;color:#fff;box-shadow:0 0 50px rgba(0,229,255,.25);z-index:2;position:relative;}
+    .av-ring{position:absolute;inset:0;border-radius:50%;border:2px solid rgba(0,229,255,.2);animation:ringPulse 3s ease-in-out infinite;}
+    .ring2{inset:-20px;animation-delay:.8s;}
+    .about-content{flex:1;min-width:280px;}
+    .about-content h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:900;margin-bottom:1rem;}
+    .about-bio{color:var(--muted);line-height:1.75;margin-bottom:2rem;font-size:1rem;}
+    .about-bio strong{color:var(--text);}
+    .about-cards{display:flex;flex-direction:column;gap:.9rem;}
+    .about-info-card{display:flex;align-items:center;gap:1.1rem;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1rem 1.4rem;transition:border-color .25s;}
+    .about-info-card:hover{border-color:rgba(0,229,255,.3);}
+    .about-info-card>i{font-size:1.2rem;color:var(--accent);width:36px;text-align:center;}
+    .ai-label{font-size:.72rem;color:var(--muted);margin-bottom:.15rem;}
+    .ai-value{font-size:.95rem;font-weight:600;}
+
+    /* CONTACT */
+    .contact-section{padding:6rem 5%;}
+    .contact-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:3rem;max-width:1000px;margin:0 auto;}
+    .contact-form{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:2.5rem;display:flex;flex-direction:column;gap:1.3rem;}
+    .form-group{display:flex;flex-direction:column;gap:.45rem;}
+    .form-group label{font-size:.82rem;color:var(--muted);font-weight:500;}
+    .form-group input,.form-group select,.form-group textarea{background:var(--surface);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:.75rem 1rem;color:var(--text);font-family:'DM Sans',sans-serif;font-size:.92rem;outline:none;transition:border-color .25s;}
+    .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:rgba(0,229,255,.4);}
+    .form-group select option{background:var(--surface);}
+    .form-group textarea{resize:vertical;}
+    .contact-info{display:flex;flex-direction:column;gap:1rem;justify-content:center;}
+    .ci-card{display:flex;align-items:center;gap:1.2rem;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.3rem 1.5rem;transition:transform .2s,border-color .25s;}
+    .ci-card:hover{transform:translateX(6px);border-color:rgba(0,229,255,.3);}
+    .ci-card>i{font-size:1.3rem;color:var(--accent);width:38px;text-align:center;flex-shrink:0;}
+    .ci-title{font-size:.75rem;color:var(--muted);margin-bottom:.2rem;}
+    .ci-val{font-size:.95rem;font-weight:600;}
+
+    .toast{position:fixed;bottom:2rem;right:2rem;z-index:999;background:linear-gradient(135deg,var(--accent2),var(--accent));color:#fff;padding:1rem 1.8rem;border-radius:14px;font-weight:600;box-shadow:0 10px 30px rgba(0,0,0,.4);transform:translateY(100px);opacity:0;transition:all .4s cubic-bezier(.34,1.56,.64,1);}
+    .toast.show{transform:translateY(0);opacity:1;}
+
+    footer{background:var(--surface);border-top:1px solid var(--border);padding:2rem 5%;}
+    .footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+    footer p{color:var(--muted);font-size:.83rem;}
+    .footer-links{display:flex;gap:1.5rem;}
+    .footer-links a{color:var(--muted);text-decoration:none;font-size:.83rem;transition:color .2s;}
+    .footer-links a:hover{color:var(--accent);}
+
+    @media(max-width:900px){
+      nav ul,.nav-cta{display:none;}.hamburger{display:block;}
+      .hero{flex-direction:column;text-align:center;padding-top:6rem;}
+      .hero-right{display:none;}.hero-stats{justify-content:center;}.hero-btns{justify-content:center;}
+      .about-inner{flex-direction:column;text-align:center;}.about-visual{margin:0 auto;}
+      .contact-grid{grid-template-columns:1fr;}.footer-inner{flex-direction:column;text-align:center;}
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="navbar">
+    <div class="logo">Assign<span>Mint</span></div>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#subjects">Subjects</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-cta">Get Started</button>
+    <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-left">
+      <div class="badge">⚙ Engineering Assignment Hub</div>
+      <h1>Master Your <em>Engineering</em> Assignments</h1>
+      <p>A dedicated platform for engineering students to submit, track, and collaborate on assignments across all core branches — powered by smart tools and real-time feedback.</p>
+      <div class="hero-btns">
+        <button class="btn-primary" onclick="document.getElementById('subjects').scrollIntoView({behavior:'smooth'})">Start Submitting</button>
+        <button class="btn-outline" onclick="document.getElementById('subjects').scrollIntoView({behavior:'smooth'})">Browse Subjects</button>
+      </div>
+      <div class="hero-stats">
+        <div><div class="stat-num">6+</div><div class="stat-label">Engineering Branches</div></div>
+        <div><div class="stat-num">30+</div><div class="stat-label">Subjects Covered</div></div>
+        <div><div class="stat-num">50K+</div><div class="stat-label">Students Enrolled</div></div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-card">
+        <div class="hc-header">
+          <div class="hc-dot red"></div><div class="hc-dot yellow"></div><div class="hc-dot green"></div>
+          <span>Assignment Dashboard</span>
+        </div>
+        <div class="hc-subject">
+          <i class="fas fa-microchip"></i>
+          <div><div class="hc-name">Digital Electronics</div><div class="hc-branch">Electronics Engineering</div></div>
+          <span class="tag due">Due Today</span>
+        </div>
+        <div class="hc-subject">
+          <i class="fas fa-code"></i>
+          <div><div class="hc-name">Data Structures</div><div class="hc-branch">Computer Science</div></div>
+          <span class="tag done">Submitted</span>
+        </div>
+        <div class="hc-subject">
+          <i class="fas fa-bolt"></i>
+          <div><div class="hc-name">Power Systems</div><div class="hc-branch">Electrical Engineering</div></div>
+          <span class="tag pending">Pending</span>
+        </div>
+        <div class="hc-progress">
+          <div class="hp-label"><span>Overall Progress</span><span>72%</span></div>
+          <div class="hp-bar"><div class="hp-fill" style="width:72%"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUBJECTS -->
+  <section id="subjects" class="subjects-section">
+    <div class="section-header">
+      <div class="badge">📚 Curriculum</div>
+      <h2>Engineering <em>Subjects</em></h2>
+      <p>Browse assignments by your engineering branch and semester</p>
+    </div>
+    <div class="branch-tabs">
+      <button class="tab active" data-branch="all">All Branches</button>
+      <button class="tab" data-branch="cse">💻 Computer Science</button>
+      <button class="tab" data-branch="ece">📡 Electronics</button>
+      <button class="tab" data-branch="eee">⚡ Electrical</button>
+      <button class="tab" data-branch="mech">⚙ Mechanical</button>
+      <button class="tab" data-branch="civil">🏗 Civil</button>
+      <button class="tab" data-branch="chem">🧪 Chemical</button>
+    </div>
+    <div class="subjects-grid" id="subjectsGrid"></div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features" class="features-section">
+    <div class="section-header">
+      <div class="badge">🚀 Why AssignMint</div>
+      <h2>Built for <em>Engineers</em></h2>
+      <p>Everything you need to stay on top of your academic workload</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon" style="background:rgba(0,229,255,.1);color:var(--accent)"><i class="fas fa-upload"></i></div>
+        <h3>Easy Submission</h3>
+        <p>Upload PDFs, code files, CAD drawings, or any format your professor requires in seconds.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:rgba(124,58,237,.1);color:var(--accent2)"><i class="fas fa-bell"></i></div>
+        <h3>Deadline Alerts</h3>
+        <p>Never miss a deadline. Smart notifications remind you days and hours before submissions close.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:rgba(0,245,160,.1);color:var(--green)"><i class="fas fa-chart-line"></i></div>
+        <h3>Progress Tracker</h3>
+        <p>Visual dashboards show your submission history, grades received, and pending tasks.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:rgba(245,158,11,.1);color:var(--accent3)"><i class="fas fa-users"></i></div>
+        <h3>Group Projects</h3>
+        <p>Collaborate seamlessly on team assignments with shared workspaces and version control.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:rgba(255,77,109,.1);color:var(--red)"><i class="fas fa-shield-alt"></i></div>
+        <h3>Plagiarism Check</h3>
+        <p>Built-in similarity checker ensures your assignments are original before submission.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:rgba(0,229,255,.1);color:var(--accent)"><i class="fas fa-comments"></i></div>
+        <h3>Faculty Feedback</h3>
+        <p>Receive inline comments and audio feedback directly on your submitted documents.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="about-section">
+    <div class="about-inner">
+      <div class="about-visual">
+        <div class="av-circle"><i class="fas fa-user-graduate"></i></div>
+        <div class="av-ring"></div>
+        <div class="av-ring ring2"></div>
+      </div>
+      <div class="about-content">
+        <div class="badge">👤 About the Creator</div>
+        <h2>Meet <em>Mohit</em></h2>
+        <p class="about-bio">Hi! I'm <strong>Mohit</strong>, a passionate engineering student and developer who built AssignMint to solve the real problem of assignment management in engineering colleges. I believe every student deserves a smooth, stress-free academic experience.</p>
+        <div class="about-cards">
+          <div class="about-info-card">
+            <i class="fas fa-phone"></i>
+            <div><div class="ai-label">Contact</div><div class="ai-value">7340381330</div></div>
+          </div>
+          <div class="about-info-card">
+            <i class="fas fa-envelope"></i>
+            <div><div class="ai-label">Email</div><div class="ai-value">mohit381330@gmail.com</div></div>
+          </div>
+          <div class="about-info-card">
+            <i class="fas fa-graduation-cap"></i>
+            <div><div class="ai-label">Focus</div><div class="ai-value">Engineering Education</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact-section">
+    <div class="section-header">
+      <div class="badge">📬 Get In Touch</div>
+      <h2>Contact <em>Us</em></h2>
+      <p>Have a question or want to collaborate? Reach out!</p>
+    </div>
+    <div class="contact-grid">
+      <form class="contact-form" id="contactForm">
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" placeholder="e.g. Rahul Sharma" required/>
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="your@email.com" required/>
+        </div>
+        <div class="form-group">
+          <label>Branch / Department</label>
+          <select>
+            <option>Computer Science Engineering</option>
+            <option>Electronics & Communication</option>
+            <option>Electrical Engineering</option>
+            <option>Mechanical Engineering</option>
+            <option>Civil Engineering</option>
+            <option>Chemical Engineering</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea rows="4" placeholder="Your message..."></textarea>
+        </div>
+        <button type="submit" class="btn-primary w-full">Send Message <i class="fas fa-paper-plane"></i></button>
+      </form>
+      <div class="contact-info">
+        <div class="ci-card"><i class="fas fa-phone"></i><div><div class="ci-title">Call Us</div><div class="ci-val">7340381330</div></div></div>
+        <div class="ci-card"><i class="fas fa-envelope"></i><div><div class="ci-title">Email Us</div><div class="ci-val">mohit381330@gmail.com</div></div></div>
+        <div class="ci-card"><i class="fas fa-clock"></i><div><div class="ci-title">Support Hours</div><div class="ci-val">Mon–Sat, 9AM–8PM IST</div></div></div>
+        <div class="ci-card"><i class="fas fa-map-marker-alt"></i><div><div class="ci-title">Location</div><div class="ci-val">India 🇮🇳</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="logo">Assign<span>Mint</span></div>
+      <p>© 2025 AssignMint by Mohit. Built for Engineering Students.</p>
+      <div class="footer-links">
+        <a href="#">Privacy</a><a href="#">Terms</a><a href="#">Support</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const subjects = [
+      {name:"Data Structures & Algorithms",branch:"Computer Science Engineering",branchKey:"cse",sem:"Sem 3",assignments:5,icon:"fa-code",color:"rgba(0,229,255,.1)",iconColor:"#00e5ff"},
+      {name:"Operating Systems",branch:"Computer Science Engineering",branchKey:"cse",sem:"Sem 4",assignments:4,icon:"fa-server",color:"rgba(0,229,255,.1)",iconColor:"#00e5ff"},
+      {name:"Database Management Systems",branch:"Computer Science Engineering",branchKey:"cse",sem:"Sem 5",assignments:6,icon:"fa-database",color:"rgba(0,229,255,.1)",iconColor:"#00e5ff"},
+      {name:"Computer Networks",branch:"Computer Science Engineering",branchKey:"cse",sem:"Sem 5",assignments:4,icon:"fa-network-wired",color:"rgba(0,229,255,.1)",iconColor:"#00e5ff"},
+      {name:"Software Engineering",branch:"Computer Science Engineering",branchKey:"cse",sem:"Sem 6",assignments:5,icon:"fa-laptop-code",color:"rgba(0,229,255,.1)",iconColor:"#00e5ff"},
+      {name:"Artificial Intelligence",branch:"Computer Science Engineering",branchKey:"cse",sem:"Sem 7",assignments:7,icon:"fa-brain",color:"rgba(0,229,255,.1)",iconColor:"#00e5ff"},
+      {name:"Digital Electronics",branch:"Electronics & Communication Engg.",branchKey:"ece",sem:"Sem 3",assignments:5,icon:"fa-microchip",color:"rgba(124,58,237,.1)",iconColor:"#7c3aed"},
+      {name:"Signals & Systems",branch:"Electronics & Communication Engg.",branchKey:"ece",sem:"Sem 4",assignments:4,icon:"fa-wave-square",color:"rgba(124,58,237,.1)",iconColor:"#7c3aed"},
+      {name:"Analog Circuits",branch:"Electronics & Communication Engg.",branchKey:"ece",sem:"Sem 4",assignments:3,icon:"fa-project-diagram",color:"rgba(124,58,237,.1)",iconColor:"#7c3aed"},
+      {name:"VLSI Design",branch:"Electronics & Communication Engg.",branchKey:"ece",sem:"Sem 6",assignments:6,icon:"fa-puzzle-piece",color:"rgba(124,58,237,.1)",iconColor:"#7c3aed"},
+      {name:"Wireless Communication",branch:"Electronics & Communication Engg.",branchKey:"ece",sem:"Sem 7",assignments:5,icon:"fa-wifi",color:"rgba(124,58,237,.1)",iconColor:"#7c3aed"},
+      {name:"Embedded Systems",branch:"Electronics & Communication Engg.",branchKey:"ece",sem:"Sem 7",assignments:5,icon:"fa-memory",color:"rgba(124,58,237,.1)",iconColor:"#7c3aed"},
+      {name:"Circuit Theory",branch:"Electrical Engineering",branchKey:"eee",sem:"Sem 2",assignments:4,icon:"fa-bolt",color:"rgba(245,158,11,.1)",iconColor:"#f59e0b"},
+      {name:"Power Systems",branch:"Electrical Engineering",branchKey:"eee",sem:"Sem 5",assignments:6,icon:"fa-plug",color:"rgba(245,158,11,.1)",iconColor:"#f59e0b"},
+      {name:"Electrical Machines",branch:"Electrical Engineering",branchKey:"eee",sem:"Sem 5",assignments:5,icon:"fa-cogs",color:"rgba(245,158,11,.1)",iconColor:"#f59e0b"},
+      {name:"Control Systems",branch:"Electrical Engineering",branchKey:"eee",sem:"Sem 6",assignments:5,icon:"fa-sliders-h",color:"rgba(245,158,11,.1)",iconColor:"#f59e0b"},
+      {name:"Power Electronics",branch:"Electrical Engineering",branchKey:"eee",sem:"Sem 6",assignments:4,icon:"fa-charging-station",color:"rgba(245,158,11,.1)",iconColor:"#f59e0b"},
+      {name:"Engineering Mechanics",branch:"Mechanical Engineering",branchKey:"mech",sem:"Sem 2",assignments:4,icon:"fa-tools",color:"rgba(0,245,160,.1)",iconColor:"#00f5a0"},
+      {name:"Thermodynamics",branch:"Mechanical Engineering",branchKey:"mech",sem:"Sem 3",assignments:5,icon:"fa-fire",color:"rgba(0,245,160,.1)",iconColor:"#00f5a0"},
+      {name:"Fluid Mechanics",branch:"Mechanical Engineering",branchKey:"mech",sem:"Sem 4",assignments:4,icon:"fa-tint",color:"rgba(0,245,160,.1)",iconColor:"#00f5a0"},
+      {name:"Machine Design",branch:"Mechanical Engineering",branchKey:"mech",sem:"Sem 5",assignments:6,icon:"fa-drafting-compass",color:"rgba(0,245,160,.1)",iconColor:"#00f5a0"},
+      {name:"Manufacturing Processes",branch:"Mechanical Engineering",branchKey:"mech",sem:"Sem 5",assignments:5,icon:"fa-industry",color:"rgba(0,245,160,.1)",iconColor:"#00f5a0"},
+      {name:"Heat Transfer",branch:"Mechanical Engineering",branchKey:"mech",sem:"Sem 6",assignments:4,icon:"fa-temperature-high",color:"rgba(0,245,160,.1)",iconColor:"#00f5a0"},
+      {name:"Structural Analysis",branch:"Civil Engineering",branchKey:"civil",sem:"Sem 4",assignments:5,icon:"fa-building",color:"rgba(255,77,109,.1)",iconColor:"#ff4d6d"},
+      {name:"Surveying",branch:"Civil Engineering",branchKey:"civil",sem:"Sem 3",assignments:4,icon:"fa-map-marked-alt",color:"rgba(255,77,109,.1)",iconColor:"#ff4d6d"},
+      {name:"Geotechnical Engineering",branch:"Civil Engineering",branchKey:"civil",sem:"Sem 5",assignments:5,icon:"fa-mountain",color:"rgba(255,77,109,.1)",iconColor:"#ff4d6d"},
+      {name:"Transportation Engineering",branch:"Civil Engineering",branchKey:"civil",sem:"Sem 6",assignments:4,icon:"fa-road",color:"rgba(255,77,109,.1)",iconColor:"#ff4d6d"},
+      {name:"Environmental Engineering",branch:"Civil Engineering",branchKey:"civil",sem:"Sem 6",assignments:5,icon:"fa-leaf",color:"rgba(255,77,109,.1)",iconColor:"#ff4d6d"},
+      {name:"Chemical Reaction Engineering",branch:"Chemical Engineering",branchKey:"chem",sem:"Sem 5",assignments:5,icon:"fa-flask",color:"rgba(0,229,255,.08)",iconColor:"#00e5ff"},
+      {name:"Mass Transfer",branch:"Chemical Engineering",branchKey:"chem",sem:"Sem 5",assignments:4,icon:"fa-atom",color:"rgba(0,229,255,.08)",iconColor:"#00e5ff"},
+      {name:"Process Control",branch:"Chemical Engineering",branchKey:"chem",sem:"Sem 6",assignments:5,icon:"fa-vials",color:"rgba(0,229,255,.08)",iconColor:"#00e5ff"},
+      {name:"Heat Transfer Operations",branch:"Chemical Engineering",branchKey:"chem",sem:"Sem 6",assignments:4,icon:"fa-thermometer-half",color:"rgba(0,229,255,.08)",iconColor:"#00e5ff"},
+    ];
+
+    function renderSubjects(filter="all"){
+      const grid=document.getElementById("subjectsGrid");
+      const list=filter==="all"?subjects:subjects.filter(s=>s.branchKey===filter);
+      grid.innerHTML="";
+      list.forEach((s,i)=>{
+        const c=document.createElement("div");
+        c.className="subject-card";
+        c.style.animationDelay=`${i*0.05}s`;
+        c.innerHTML=`
+          <div class="sc-top">
+            <div class="sc-icon" style="background:${s.color};color:${s.iconColor}"><i class="fas ${s.icon}"></i></div>
+            <span class="sc-sem">${s.sem}</span>
+          </div>
+          <div class="sc-name">${s.name}</div>
+          <div class="sc-branch">${s.branch}</div>
+          <div class="sc-meta">
+            <span><i class="fas fa-file-alt"></i> ${s.assignments} Assignments</span>
+            <span><i class="fas fa-arrow-right"></i> View</span>
+          </div>`;
+        c.onclick=()=>showToast("📂 Opening: "+s.name);
+        grid.appendChild(c);
+      });
+    }
+
+    document.querySelectorAll(".tab").forEach(t=>{
+      t.onclick=()=>{
+        document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
+        t.classList.add("active");
+        renderSubjects(t.dataset.branch);
+      };
+    });
+
+    function showToast(msg){
+      let t=document.querySelector(".toast");
+      if(!t){t=document.createElement("div");t.className="toast";document.body.appendChild(t);}
+      t.textContent=msg;t.classList.add("show");
+      setTimeout(()=>t.classList.remove("show"),3000);
+    }
+
+    document.getElementById("contactForm").onsubmit=e=>{
+      e.preventDefault();showToast("✅ Message sent successfully!");e.target.reset();
+    };
+
+    window.onscroll=()=>document.getElementById("navbar").classList.toggle("scrolled",scrollY>60);
+
+    renderSubjects();
+  </script>
+</body>
+</html>
