@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flipkart - India's Online Marketplace</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --fk-blue: #2874f0;
+    --fk-yellow: #f0c14b;
+    --fk-orange: #ff6161;
+    --fk-light: #f1f3f6;
+    --fk-dark: #1a1a2e;
+    --fk-text: #212121;
+    --fk-muted: #878787;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--fk-light);
+    color: var(--fk-text);
+  }
+
+  /* NAVBAR */
+  nav {
+    background: var(--fk-blue);
+    padding: 0 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 16px rgba(40,116,240,0.4);
+  }
+
+  .nav-inner {
+    max-width: 1280px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    height: 64px;
+  }
+
+  .logo {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+  }
+
+  .logo span:first-child {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    line-height: 1;
+  }
+
+  .logo span:last-child {
+    color: var(--fk-yellow);
+    font-size: 0.6rem;
+    font-style: italic;
+  }
+
+  .search-bar {
+    flex: 1;
+    display: flex;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+
+  .search-bar input {
+    flex: 1;
+    padding: 0.65rem 1rem;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    outline: none;
+  }
+
+  .search-bar button {
+    background: #fff;
+    border: none;
+    padding: 0 1.2rem;
+    cursor: pointer;
+    color: var(--fk-blue);
+    font-size: 1.1rem;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    transition: background 0.2s;
+  }
+
+  .nav-links a:hover { background: rgba(255,255,255,0.15); }
+
+  .btn-login {
+    background: #fff !important;
+    color: var(--fk-blue) !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.5px;
+  }
+
+  /* HERO BANNER */
+  .hero {
+    background: linear-gradient(135deg, #1a237e 0%, #2874f0 50%, #42a5f5 100%);
+    padding: 3rem 2rem;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .hero h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 0.5rem;
+    position: relative;
+  }
+
+  .hero h1 span { color: var(--fk-yellow); }
+
+  .hero p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-bottom: 2rem;
+    position: relative;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    position: relative;
+  }
+
+  .btn-primary {
+    background: var(--fk-yellow);
+    color: var(--fk-dark);
+    border: none;
+    padding: 0.85rem 2rem;
+    border-radius: 4px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 15px rgba(240,193,75,0.4);
+  }
+
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(240,193,75,0.5); }
+
+  .btn-outline {
+    background: transparent;
+    color: #fff;
+    border: 2px solid rgba(255,255,255,0.6);
+    padding: 0.85rem 2rem;
+    border-radius: 4px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: #fff; }
+
+  /* DEAL STRIP */
+  .deal-strip {
+    background: #fff;
+    padding: 1.2rem 2rem;
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  }
+
+  .deal-tag {
+    background: #fff;
+    border: 1.5px solid #e0e0e0;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: var(--fk-text);
+  }
+
+  .deal-tag:hover, .deal-tag.active {
+    background: var(--fk-blue);
+    color: #fff;
+    border-color: var(--fk-blue);
+  }
+
+  /* MAIN CONTENT */
+  .main { max-width: 1280px; margin: 1.5rem auto; padding: 0 2rem; }
+
+  /* CATEGORIES */
+  .section-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(90deg, var(--fk-blue), transparent);
+    border-radius: 2px;
+  }
+
+  .categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .cat-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 1.2rem 0.8rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.25s;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+    text-decoration: none;
+    color: var(--fk-text);
+  }
+
+  .cat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(40,116,240,0.15);
+    border-bottom: 3px solid var(--fk-blue);
+  }
+
+  .cat-icon { font-size: 2.2rem; margin-bottom: 0.5rem; display: block; }
+  .cat-name { font-size: 0.75rem; font-weight: 600; line-height: 1.3; }
+
+  /* PRODUCT GRID */
+  .products {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .product-card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.25s;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+    position: relative;
+  }
+
+  .product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+  }
+
+  .product-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: var(--fk-orange);
+    color: white;
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 0.25rem 0.6rem;
+    border-radius: 3px;
+    letter-spacing: 0.5px;
+  }
+
+  .wishlist-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(255,255,255,0.9);
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  .wishlist-btn:hover { background: var(--fk-orange); }
+
+  .product-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.5rem;
+  }
+
+  .product-info { padding: 1rem; }
+  .product-name { font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; line-height: 1.4; }
+  .product-brand { font-size: 0.72rem; color: var(--fk-muted); margin-bottom: 0.5rem; }
+
+  .product-pricing {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .price-current { font-size: 1rem; font-weight: 700; color: var(--fk-text); }
+  .price-original { font-size: 0.78rem; color: var(--fk-muted); text-decoration: line-through; }
+  .price-discount { font-size: 0.78rem; color: #26a541; font-weight: 600; }
+
+  .rating {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    margin: 0.4rem 0;
+  }
+
+  .rating-badge {
+    background: #26a541;
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.15rem 0.4rem;
+    border-radius: 3px;
+  }
+
+  .rating-count { font-size: 0.7rem; color: var(--fk-muted); }
+
+  /* BANNER SECTION */
+  .banners {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .banner-card {
+    border-radius: 12px;
+    padding: 2rem;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    min-height: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    transition: transform 0.25s;
+  }
+
+  .banner-card:hover { transform: scale(1.02); }
+
+  .banner-card:nth-child(1) { background: linear-gradient(135deg, #ff6f00, #ffc107); }
+  .banner-card:nth-child(2) { background: linear-gradient(135deg, #6a1b9a, #ab47bc); }
+
+  .banner-card::before {
+    content: attr(data-emoji);
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 5rem;
+    opacity: 0.3;
+  }
+
+  .banner-card h3 { font-size: 1.3rem; font-weight: 800; margin-bottom: 0.3rem; }
+  .banner-card p { font-size: 0.85rem; opacity: 0.9; }
+
+  /* FEATURES */
+  .features {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .feature-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+    transition: transform 0.2s;
+  }
+
+  .feature-card:hover { transform: translateY(-3px); }
+  .feature-card .icon { font-size: 2rem; margin-bottom: 0.7rem; }
+  .feature-card h4 { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.3rem; }
+  .feature-card p { font-size: 0.75rem; color: var(--fk-muted); }
+
+  /* ABOUT SECTION */
+  .about {
+    background: linear-gradient(135deg, var(--fk-dark) 0%, #16213e 100%);
+    color: white;
+    border-radius: 16px;
+    padding: 3rem;
+    margin-bottom: 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(40,116,240,0.3), transparent 70%);
+    border-radius: 50%;
+  }
+
+  .about::after {
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    left: 100px;
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle, rgba(240,193,75,0.15), transparent 70%);
+    border-radius: 50%;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .about h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    letter-spacing: -0.5px;
+  }
+
+  .about h2 span { color: var(--fk-yellow); }
+
+  .about p {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    opacity: 0.85;
+    margin-bottom: 1rem;
+  }
+
+  .about-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .stat {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 10px;
+    padding: 1.2rem;
+    text-align: center;
+    backdrop-filter: blur(10px);
+  }
+
+  .stat-number {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--fk-yellow);
+    display: block;
+  }
+
+  .stat-label { font-size: 0.75rem; opacity: 0.7; margin-top: 0.2rem; }
+
+  /* CONTACT CARD */
+  .contact-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 12px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+  }
+
+  .contact-card h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--fk-yellow);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: rgba(255,255,255,0.05);
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 3px solid var(--fk-blue);
+  }
+
+  .contact-icon {
+    width: 42px;
+    height: 42px;
+    background: var(--fk-blue);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .contact-details span:first-child {
+    display: block;
+    font-size: 0.72rem;
+    opacity: 0.6;
+    margin-bottom: 0.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+  }
+
+  .contact-details span:last-child {
+    font-size: 0.95rem;
+    font-weight: 600;
+  }
+
+  /* NEWSLETTER */
+  .newsletter {
+    background: var(--fk-blue);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    color: white;
+  }
+
+  .newsletter h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .newsletter p { opacity: 0.85; margin-bottom: 1.5rem; font-size: 0.9rem; }
+
+  .newsletter-form {
+    display: flex;
+    max-width: 450px;
+    margin: 0 auto;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  }
+
+  .newsletter-form input {
+    flex: 1;
+    padding: 0.85rem 1rem;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85rem;
+    outline: none;
+  }
+
+  .newsletter-form button {
+    background: var(--fk-yellow);
+    border: none;
+    padding: 0 1.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+    color: var(--fk-dark);
+    transition: background 0.2s;
+  }
+
+  .newsletter-form button:hover { background: #e6b800; }
+
+  /* FOOTER */
+  footer {
+    background: var(--fk-dark);
+    color: rgba(255,255,255,0.75);
+    padding: 2.5rem 2rem 1.5rem;
+  }
+
+  .footer-inner {
+    max-width: 1280px;
+    margin: auto;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .footer-col h4 {
+    color: rgba(255,255,255,0.45);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+
+  .footer-col a {
+    display: block;
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-size: 0.82rem;
+    margin-bottom: 0.5rem;
+    transition: color 0.2s;
+  }
+
+  .footer-col a:hover { color: var(--fk-yellow); }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.78rem;
+  }
+
+  .footer-logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -1px;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate { animation: fadeUp 0.5s ease forwards; }
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.2s; }
+  .delay-3 { animation-delay: 0.3s; }
+
+  /* CART NOTIFICATION */
+  .cart-notif {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: #26a541;
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 999;
+  }
+
+  .cart-notif.show { transform: translateY(0); opacity: 1; }
+
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 1.8rem; }
+    .banners, .features, .footer-grid, .about-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .about-stats { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <span>Flipkart</span>
+      <span>✦ Explore <em>Plus</em></span>
+    </a>
+    <div class="search-bar">
+      <input type="text" placeholder="Search for products, brands and more" id="searchInput">
+      <button onclick="handleSearch()">🔍</button>
+    </div>
+    <div class="nav-links">
+      <a href="#" class="btn-login">Login</a>
+      <a href="#">Become a Seller</a>
+      <a href="#">🛒 Cart <span id="cartCount" style="background:var(--fk-orange);border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;font-size:0.65rem;">0</span></a>
+    </div>
+  </div>
+</nav>
+
+<!-- DEAL STRIP -->
+<div class="deal-strip">
+  <span class="deal-tag active" onclick="setActive(this)">All Deals</span>
+  <span class="deal-tag" onclick="setActive(this)">🔥 Today's Deals</span>
+  <span class="deal-tag" onclick="setActive(this)">📱 Mobiles</span>
+  <span class="deal-tag" onclick="setActive(this)">👗 Fashion</span>
+  <span class="deal-tag" onclick="setActive(this)">🏠 Home & Kitchen</span>
+  <span class="deal-tag" onclick="setActive(this)">💻 Electronics</span>
+  <span class="deal-tag" onclick="setActive(this)">📚 Books</span>
+  <span class="deal-tag" onclick="setActive(this)">⚽ Sports</span>
+  <span class="deal-tag" onclick="setActive(this)">🧴 Beauty</span>
+  <span class="deal-tag" onclick="setActive(this)">🎮 Gaming</span>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <h1 class="animate">India's Favourite <span>Online Store</span></h1>
+  <p class="animate delay-1">Millions of products. Unbeatable prices. Delivered to your doorstep.</p>
+  <div class="hero-btns animate delay-2">
+    <button class="btn-primary">Shop Now →</button>
+    <button class="btn-outline">View Offers</button>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- CATEGORIES -->
+  <h2 class="section-title">🛍️ Shop by Category</h2>
+  <div class="categories">
+    <a href="#" class="cat-card"><span class="cat-icon">📱</span><span class="cat-name">Mobiles</span></a>
+    <a href="#" class="cat-card"><span class="cat-icon">👗</span><span class="cat-name">Fashion</span></a>
+    <a href="#" class="cat-card"><span class="cat-icon">💻</span><span class="cat-name">Electronics</span></a>
+    <a href="#" class="cat-card"><span class="cat-icon">🏠</span><span class="cat-name">Home</span></a>
+    <a href="#" class="cat-card"><span class="cat-icon">👟</span><span class="cat-name">Footwear</span></a>
+    <a href="#" class="cat-card"><span class="cat-icon">📚</span><span class="cat-name">Books</span></a>
+    <a href="#" class="cat-card"><span class="cat-icon">🧴</span><span class="cat-name">Beauty</span></a>
+    <a href="#" class="cat-card"><span class="cat-icon">🎮</span><span class="cat-name">Gaming</span></a>
+    <a href="#" class="cat-card"><span class="cat-icon">⚽</span><span class="cat-name">Sports</span></a>
+    <a href="#" class="cat-card"><span class="cat-icon">🚗</span><span class="cat-name">Automotive</span></a>
+  </div>
+
+  <!-- FEATURED PRODUCTS -->
+  <h2 class="section-title">⚡ Flash Sale — Ends Soon</h2>
+  <div class="products" id="productGrid">
+    <!-- Products generated by JS -->
+  </div>
+
+  <!-- BANNERS -->
+  <div class="banners">
+    <div class="banner-card" data-emoji="👗">
+      <h3>Fashion Week Sale</h3>
+      <p>Up to 80% off on top brands</p>
+    </div>
+    <div class="banner-card" data-emoji="💻">
+      <h3>Electronics Bonanza</h3>
+      <p>Best deals on gadgets & devices</p>
+    </div>
+  </div>
+
+  <!-- MORE PRODUCTS -->
+  <h2 class="section-title">🏆 Top Rated Products</h2>
+  <div class="products" id="topProducts"></div>
+
+  <!-- FEATURES -->
+  <h2 class="section-title">🌟 Why Shop With Us?</h2>
+  <div class="features">
+    <div class="feature-card">
+      <div class="icon">🚚</div>
+      <h4>Free Delivery</h4>
+      <p>On orders above ₹499. Express delivery available.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">↩️</div>
+      <h4>Easy Returns</h4>
+      <p>10-day hassle-free return policy on most items.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">🔒</div>
+      <h4>Secure Payment</h4>
+      <p>100% secure payments via UPI, cards & wallets.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">🏅</div>
+      <h4>Genuine Products</h4>
+      <p>Authentic products from verified sellers.</p>
+    </div>
+  </div>
+
+  <!-- ABOUT SECTION -->
+  <div class="about" id="about">
+    <div class="about-grid">
+      <div>
+        <h2>About <span>Flipkart</span></h2>
+        <p>Flipkart is India's leading e-commerce marketplace, serving millions of customers across the country every day. Founded with a vision to transform commerce in India through technology, we empower sellers and delight buyers with an unmatched shopping experience.</p>
+        <p>We offer over 150 million products across 80+ categories, ensuring that every Indian can find what they need at the best price. With world-class logistics and customer support, we're committed to making e-commerce accessible to all.</p>
+        <div class="about-stats">
+          <div class="stat">
+            <span class="stat-number">150M+</span>
+            <span class="stat-label">Products Listed</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">400M+</span>
+            <span class="stat-label">Registered Users</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">21K+</span>
+            <span class="stat-label">Delivery Pincodes</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">1.4M+</span>
+            <span class="stat-label">Seller Partners</span>
+          </div>
+        </div>
+      </div>
+      <div class="contact-card">
+        <h3>📋 Contact Information</h3>
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-icon">👤</div>
+            <div class="contact-details">
+              <span>Administrator</span>
+              <span>Mohit</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📞</div>
+            <div class="contact-details">
+              <span>Contact Number</span>
+              <span>7340381330</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📧</div>
+            <div class="contact-details">
+              <span>Email Support</span>
+              <span>support@flipkart.com</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">🕐</div>
+            <div class="contact-details">
+              <span>Support Hours</span>
+              <span>Mon–Sat: 9 AM – 9 PM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NEWSLETTER -->
+  <div class="newsletter">
+    <h3>📬 Stay Updated with Best Deals</h3>
+    <p>Subscribe to get exclusive deals, early access to sales and personalised recommendations.</p>
+    <div class="newsletter-form">
+      <input type="email" placeholder="Enter your email address">
+      <button>Subscribe</button>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>About</h4>
+        <a href="#about">About Us</a>
+        <a href="#">Careers</a>
+        <a href="#">Press</a>
+        <a href="#">Corporate Information</a>
+        <a href="#">Investor Relations</a>
+      </div>
+      <div class="footer-col">
+        <h4>Help</h4>
+        <a href="#">Customer Support</a>
+        <a href="#">Track Order</a>
+        <a href="#">Return Policy</a>
+        <a href="#">Cancellation & Returns</a>
+        <a href="#">FAQ</a>
+      </div>
+      <div class="footer-col">
+        <h4>Consumer Policy</h4>
+        <a href="#">Cancellation & Returns</a>
+        <a href="#">Terms of Use</a>
+        <a href="#">Privacy</a>
+        <a href="#">Security</a>
+        <a href="#">Sitemap</a>
+      </div>
+      <div class="footer-col">
+        <h4>Social</h4>
+        <a href="#">Facebook</a>
+        <a href="#">Twitter</a>
+        <a href="#">YouTube</a>
+        <a href="#">Instagram</a>
+        <a href="#">Contact: 7340381330</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>
+        <span class="footer-logo">Flipkart</span>
+        <span style="margin-left:1rem;font-size:0.75rem;opacity:0.5;">© 2024 All rights reserved</span>
+      </div>
+      <div style="display:flex;gap:1rem;font-size:0.75rem;">
+        <span>🇮🇳 India</span>
+        <span>Admin: <strong style="color:var(--fk-yellow)">Mohit</strong> | 7340381330</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- CART NOTIFICATION -->
+<div class="cart-notif" id="cartNotif">✅ Item added to cart!</div>
+
+<script>
+  // Products data
+  const products = [
+    { name: 'iPhone 15 Pro Max', brand: 'Apple', price: '₹1,34,900', original: '₹1,59,900', discount: '16% off', rating: '4.6', reviews: '12,450', emoji: '📱' },
+    { name: 'Samsung Galaxy S24', brand: 'Samsung', price: '₹74,999', original: '₹89,999', discount: '17% off', rating: '4.5', reviews: '8,320', emoji: '📱' },
+    { name: 'boAt Airdopes 141', brand: 'boAt', price: '₹999', original: '₹4,990', discount: '80% off', rating: '4.3', reviews: '45,231', emoji: '🎧' },
+    { name: 'Levi\'s Men\'s T-Shirt', brand: 'Levi\'s', price: '₹799', original: '₹1,599', discount: '50% off', rating: '4.4', reviews: '3,210', emoji: '👕' },
+    { name: 'HP Pavilion Laptop', brand: 'HP', price: '₹52,999', original: '₹67,990', discount: '22% off', rating: '4.3', reviews: '2,876', emoji: '💻' },
+    { name: 'Nike Air Max 270', brand: 'Nike', price: '₹7,499', original: '₹12,995', discount: '42% off', rating: '4.5', reviews: '6,543', emoji: '👟' },
+  ];
+
+  const topProducts = [
+    { name: 'Sony WH-1000XM5', brand: 'Sony', price: '₹22,990', original: '₹34,990', discount: '34% off', rating: '4.7', reviews: '9,876', emoji: '🎧' },
+    { name: 'Kindle Paperwhite', brand: 'Amazon', price: '₹13,999', original: '₹18,999', discount: '26% off', rating: '4.6', reviews: '14,320', emoji: '📚' },
+    { name: 'Fitbit Versa 4', brand: 'Fitbit', price: '₹11,995', original: '₹19,995', discount: '40% off', rating: '4.4', reviews: '4,210', emoji: '⌚' },
+    { name: 'Instant Pot Duo', brand: 'Instant Pot', price: '₹8,999', original: '₹15,000', discount: '40% off', rating: '4.5', reviews: '7,654', emoji: '🍲' },
+    { name: 'Canon EOS R50', brand: 'Canon', price: '₹59,999', original: '₹77,995', discount: '23% off', rating: '4.6', reviews: '1,932', emoji: '📷' },
+    { name: 'PlayStation 5 Slim', brand: 'Sony', price: '₹44,990', original: '₹54,990', discount: '18% off', rating: '4.8', reviews: '21,043', emoji: '🎮' },
+  ];
+
+  let cartCount = 0;
+
+  function renderProducts(data, containerId) {
+    const container = document.getElementById(containerId);
+    const badges = ['NEW', 'HOT', 'SALE', 'BESTSELLER', ''];
+    data.forEach((p, i) => {
+      const badge = badges[i % badges.length];
+      container.innerHTML += `
+        <div class="product-card" onclick="addToCart(event)">
+          ${badge ? `<div class="product-badge">${badge}</div>` : ''}
+          <button class="wishlist-btn" onclick="toggleWishlist(event, this)">🤍</button>
+          <div class="product-img">${p.emoji}</div>
+          <div class="product-info">
+            <div class="product-brand">${p.brand}</div>
+            <div class="product-name">${p.name}</div>
+            <div class="rating">
+              <span class="rating-badge">⭐ ${p.rating}</span>
+              <span class="rating-count">(${p.reviews})</span>
+            </div>
+            <div class="product-pricing">
+              <span class="price-current">${p.price}</span>
+              <span class="price-original">${p.original}</span>
+              <span class="price-discount">${p.discount}</span>
+            </div>
+          </div>
+        </div>`;
+    });
+  }
+
+  renderProducts(products, 'productGrid');
+  renderProducts(topProducts, 'topProducts');
+
+  function addToCart(event) {
+    cartCount++;
+    document.getElementById('cartCount').textContent = cartCount;
+    const notif = document.getElementById('cartNotif');
+    notif.classList.add('show');
+    setTimeout(() => notif.classList.remove('show'), 2500);
+  }
+
+  function toggleWishlist(event, btn) {
+    event.stopPropagation();
+    btn.textContent = btn.textContent === '🤍' ? '❤️' : '🤍';
+  }
+
+  function setActive(el) {
+    document.querySelectorAll('.deal-tag').forEach(t => t.classList.remove('active'));
+    el.classList.add('active');
+  }
+
+  function handleSearch() {
+    const q = document.getElementById('searchInput').value;
+    if (q) alert(`Searching for: "${q}"`);
+  }
+
+  document.getElementById('searchInput').addEventListener('keydown', e => {
+    if (e.key === 'Enter') handleSearch();
+  });
+</script>
+</body>
+</html>
