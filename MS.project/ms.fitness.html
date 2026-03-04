@@ -1,0 +1,781 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOHIT'S FITNESS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --fire: #FF4D00;
+            --gold: #FFB800;
+            --dark: #0A0A0A;
+            --charcoal: #111111;
+            --steel: #1E1E1E;
+            --light: #F5F5F0;
+            --muted: #888888;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Barlow', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            overflow-x: hidden;
+        }
+
+        /* ─── HEADER ─── */
+        .header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 48px;
+            height: 72px;
+            background: rgba(10,10,10,0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255,77,0,0.25);
+        }
+
+        /* LEFT – logo */
+        .left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+        .logo-icon {
+            width: 38px; height: 38px;
+            background: var(--fire);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 18px; color: #fff;
+        }
+        .logo-text {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 26px;
+            letter-spacing: 3px;
+            color: var(--light);
+        }
+        .logo-text span { color: var(--fire); }
+
+        /* MID – nav */
+        .mid {
+            display: flex;
+            gap: 36px;
+        }
+        .mid a {
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--muted);
+            transition: color 0.2s;
+            position: relative;
+            padding-bottom: 4px;
+        }
+        .mid a::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 0; height: 2px;
+            background: var(--fire);
+            transition: width 0.25s;
+        }
+        .mid a:hover { color: var(--light); }
+        .mid a:hover::after { width: 100%; }
+
+        /* RIGHT – buttons */
+        .right {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+        .btn-outline {
+            padding: 8px 20px;
+            border: 1.5px solid var(--fire);
+            color: var(--fire);
+            background: transparent;
+            font-family: 'Barlow', sans-serif;
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.2s, color 0.2s;
+        }
+        .btn-outline:hover { background: var(--fire); color: #fff; }
+        .btn-solid {
+            padding: 8px 20px;
+            background: var(--fire);
+            color: #fff;
+            border: 1.5px solid var(--fire);
+            font-family: 'Barlow', sans-serif;
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+        .btn-solid:hover { background: #d93f00; border-color: #d93f00; }
+
+        /* ─── HERO ─── */
+        #home {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background-image: url('https://i.pinimg.com/736x/21/f1/13/21f113461c6e8a54c4e9fa02f1685300.jpg');
+            background-size: cover;
+            background-position: center top;
+            filter: brightness(0.35);
+        }
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(10,10,10,0.9) 40%, transparent 100%);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 0 80px;
+            max-width: 700px;
+            animation: fadeUp 1s ease both;
+        }
+        .hero-tag {
+            display: inline-block;
+            background: var(--fire);
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            margin-bottom: 24px;
+        }
+        .hero-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(64px, 8vw, 110px);
+            line-height: 0.95;
+            letter-spacing: 4px;
+            color: var(--light);
+            margin-bottom: 24px;
+        }
+        .hero-title span { color: var(--fire); }
+        .hero-sub {
+            font-size: 17px;
+            font-weight: 300;
+            color: rgba(245,245,240,0.7);
+            line-height: 1.7;
+            max-width: 480px;
+            margin-bottom: 40px;
+        }
+        .hero-cta { display: flex; gap: 16px; }
+        .hero-scroll {
+            position: absolute;
+            bottom: 36px; left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            display: flex; flex-direction: column; align-items: center;
+            gap: 8px; color: var(--muted); font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+        }
+        .scroll-line {
+            width: 1px; height: 48px;
+            background: linear-gradient(var(--fire), transparent);
+            animation: scrollPulse 1.8s ease-in-out infinite;
+        }
+        @keyframes scrollPulse {
+            0%,100% { opacity: 0.3; transform: scaleY(1); }
+            50% { opacity: 1; transform: scaleY(1.1); }
+        }
+
+        /* ─── STATS BAR ─── */
+        .stats-bar {
+            background: var(--fire);
+            display: flex;
+            justify-content: space-around;
+            padding: 28px 80px;
+        }
+        .stat-item { text-align: center; }
+        .stat-num {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 40px;
+            color: #fff;
+            letter-spacing: 2px;
+        }
+        .stat-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.75);
+        }
+
+        /* ─── SECTIONS SHARED ─── */
+        section { padding: 100px 80px; }
+        .section-tag {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--fire);
+            margin-bottom: 14px;
+        }
+        .section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(42px, 5vw, 64px);
+            letter-spacing: 3px;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+        .section-line {
+            width: 60px; height: 3px;
+            background: var(--fire);
+            margin-bottom: 32px;
+        }
+
+        /* ─── SERVICES ─── */
+        #services { background: var(--charcoal); }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+            margin-top: 56px;
+        }
+        .service-card {
+            background: var(--steel);
+            padding: 44px 36px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        .service-card::before {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 0; height: 3px;
+            background: var(--fire);
+            transition: width 0.4s;
+        }
+        .service-card:hover { transform: translateY(-4px); }
+        .service-card:hover::before { width: 100%; }
+        .service-icon {
+            font-size: 38px;
+            margin-bottom: 20px;
+        }
+        .service-name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 28px;
+            letter-spacing: 2px;
+            color: var(--light);
+            margin-bottom: 12px;
+        }
+        .service-desc {
+            font-size: 14px;
+            font-weight: 300;
+            color: var(--muted);
+            line-height: 1.7;
+        }
+
+        /* ─── ABOUT ─── */
+        #about { background: var(--dark); }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        .about-img-wrap {
+            position: relative;
+        }
+        .about-img-wrap img {
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
+            object-position: top;
+            display: block;
+        }
+        .about-badge {
+            position: absolute;
+            bottom: -20px; right: -20px;
+            background: var(--fire);
+            width: 130px; height: 130px;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            font-family: 'Bebas Neue', sans-serif;
+        }
+        .badge-num { font-size: 52px; line-height: 1; color: #fff; }
+        .badge-label { font-size: 11px; letter-spacing: 2px; color: rgba(255,255,255,0.8); }
+        .about-info { margin-top: 40px; }
+        .info-row {
+            display: flex;
+            align-items: center;
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            gap: 16px;
+        }
+        .info-row:first-child { border-top: 1px solid rgba(255,255,255,0.06); }
+        .info-key {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--fire);
+            min-width: 90px;
+        }
+        .info-val {
+            font-size: 15px;
+            font-weight: 400;
+            color: var(--light);
+        }
+        .about-text {
+            font-size: 15px;
+            font-weight: 300;
+            color: rgba(245,245,240,0.65);
+            line-height: 1.85;
+            margin-bottom: 20px;
+        }
+
+        /* ─── PROGRAMS ─── */
+        #programs { background: var(--charcoal); }
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2px;
+            margin-top: 56px;
+        }
+        .program-card {
+            position: relative;
+            overflow: hidden;
+            height: 380px;
+            cursor: pointer;
+        }
+        .program-card img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+            filter: brightness(0.5);
+        }
+        .program-card:hover img {
+            transform: scale(1.06);
+            filter: brightness(0.35);
+        }
+        .program-info {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            padding: 28px 24px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.85));
+        }
+        .program-name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 26px;
+            letter-spacing: 2px;
+            color: #fff;
+        }
+        .program-level {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+        }
+
+        /* ─── CONTACT ─── */
+        #contact { background: var(--dark); }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            margin-top: 56px;
+        }
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 36px;
+        }
+        .contact-icon {
+            width: 48px; height: 48px;
+            background: var(--steel);
+            border: 1px solid rgba(255,77,0,0.3);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+        .contact-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--fire);
+            margin-bottom: 4px;
+        }
+        .contact-val {
+            font-size: 15px;
+            color: var(--light);
+        }
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .form-row { display: flex; gap: 16px; }
+        .form-field {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .form-field label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+        .form-field input,
+        .form-field textarea {
+            background: var(--steel);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-bottom: 2px solid rgba(255,77,0,0.4);
+            padding: 14px 16px;
+            color: var(--light);
+            font-family: 'Barlow', sans-serif;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.2s;
+            resize: none;
+        }
+        .form-field input:focus,
+        .form-field textarea:focus {
+            border-color: var(--fire);
+        }
+        .form-field textarea { height: 100px; }
+
+        /* ─── FOOTER ─── */
+        footer {
+            background: #050505;
+            border-top: 1px solid rgba(255,77,0,0.2);
+            padding: 40px 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .footer-brand {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 22px;
+            letter-spacing: 4px;
+            color: var(--muted);
+        }
+        .footer-brand span { color: var(--fire); }
+        .footer-copy {
+            font-size: 12px;
+            color: var(--muted);
+            letter-spacing: 1px;
+        }
+
+        /* ─── ANIMATIONS ─── */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ═══════════ HEADER ═══════════ -->
+    <header class="header">
+        <!-- LEFT: Logo -->
+        <div class="left">
+            <div class="logo-icon">M</div>
+            <span class="logo-text">MOHIT'S <span>FITNESS</span></span>
+        </div>
+
+        <!-- MID: Navbar -->
+        <nav class="mid">
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#programs">Programs</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <!-- RIGHT: Buttons -->
+        <div class="right">
+            <a href="#contact" class="btn-outline">Log In</a>
+            <a href="#contact" class="btn-solid">Join Now</a>
+        </div>
+    </header>
+
+
+    <!-- ═══════════ HERO ═══════════ -->
+    <section id="home">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-tag">🔥 Transform Your Body</div>
+            <h1 class="hero-title">UNLEASH YOUR <span>POWER</span></h1>
+            <p class="hero-sub">
+                Elite training. Relentless discipline. Real results.
+                Join Mohit's Fitness and forge the strongest version of yourself.
+            </p>
+            <div class="hero-cta">
+                <a href="#programs" class="btn-solid">Explore Programs</a>
+                <a href="#about" class="btn-outline">Meet Mohit</a>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <div class="scroll-line"></div>
+            Scroll
+        </div>
+    </section>
+
+
+    <!-- ═══════════ STATS BAR ═══════════ -->
+    <div class="stats-bar">
+        <div class="stat-item">
+            <div class="stat-num">500+</div>
+            <div class="stat-label">Members Trained</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-num">8+</div>
+            <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-num">15+</div>
+            <div class="stat-label">Programs</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-num">98%</div>
+            <div class="stat-label">Success Rate</div>
+        </div>
+    </div>
+
+
+    <!-- ═══════════ SERVICES ═══════════ -->
+    <section id="services">
+        <div class="section-tag">What We Offer</div>
+        <h2 class="section-title">ELITE SERVICES</h2>
+        <div class="section-line"></div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">💪</div>
+                <div class="service-name">Personal Training</div>
+                <p class="service-desc">One-on-one sessions tailored to your goals. Every rep, every set, engineered for maximum results.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🥗</div>
+                <div class="service-name">Nutrition Plan</div>
+                <p class="service-desc">Custom meal plans built around your body type and targets. Fuel performance, accelerate recovery.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🏋️</div>
+                <div class="service-name">Strength & Conditioning</div>
+                <p class="service-desc">Build raw power and athletic endurance with scientifically programmed strength cycles.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔥</div>
+                <div class="service-name">HIIT Classes</div>
+                <p class="service-desc">High-intensity interval training that torches fat and spikes your metabolism for hours after.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🧘</div>
+                <div class="service-name">Mobility & Recovery</div>
+                <p class="service-desc">Targeted stretching, foam rolling, and recovery protocols so you can train harder, more often.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📱</div>
+                <div class="service-name">Online Coaching</div>
+                <p class="service-desc">Full remote coaching with app-based tracking, weekly check-ins, and 24/7 support from Mohit.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════ PROGRAMS ═══════════ -->
+    <section id="programs">
+        <div class="section-tag">Choose Your Path</div>
+        <h2 class="section-title">TRAINING PROGRAMS</h2>
+        <div class="section-line"></div>
+        <div class="programs-grid">
+            <div class="program-card">
+                <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&q=80" alt="Strength">
+                <div class="program-info">
+                    <div class="program-level">Intermediate</div>
+                    <div class="program-name">STRENGTH FORGE</div>
+                </div>
+            </div>
+            <div class="program-card">
+                <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=400&q=80" alt="Fat Loss">
+                <div class="program-info">
+                    <div class="program-level">All Levels</div>
+                    <div class="program-name">FAT BURN X</div>
+                </div>
+            </div>
+            <div class="program-card">
+                <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=400&q=80" alt="Muscle">
+                <div class="program-info">
+                    <div class="program-level">Advanced</div>
+                    <div class="program-name">MASS PROTOCOL</div>
+                </div>
+            </div>
+            <div class="program-card">
+                <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=400&q=80" alt="Endurance">
+                <div class="program-info">
+                    <div class="program-level">Beginner</div>
+                    <div class="program-name">ENDURE & RISE</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════ ABOUT ═══════════ -->
+    <section id="about">
+        <div class="about-grid">
+            <!-- Image side -->
+            <div class="about-img-wrap">
+                <img src="https://i.pinimg.com/736x/21/f1/13/21f113461c6e8a54c4e9fa02f1685300.jpg" alt="Mohit – Fitness Coach">
+                <div class="about-badge">
+                    <div class="badge-num">8+</div>
+                    <div class="badge-label">Years</div>
+                </div>
+            </div>
+
+            <!-- Text side -->
+            <div>
+                <div class="section-tag">About Me</div>
+                <h2 class="section-title">MEET MOHIT</h2>
+                <div class="section-line"></div>
+
+                <p class="about-text">
+                    I'm Mohit — a certified fitness coach and strength specialist with over 8 years of hands-on experience
+                    transforming lives through disciplined training and smart nutrition.
+                </p>
+                <p class="about-text">
+                    My philosophy is simple: consistency beats perfection every single time. Whether you're
+                    a beginner stepping into the gym for the first time or an athlete chasing elite performance,
+                    I design programs that push you to your limit — and then some.
+                </p>
+
+                <!-- Contact details inside About -->
+                <div class="about-info">
+                    <div class="info-row">
+                        <span class="info-key">Name</span>
+                        <span class="info-val">Mohit</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-key">Email</span>
+                        <span class="info-val">mohit381330@gmail.com</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-key">Specialty</span>
+                        <span class="info-val">Strength, Fat Loss, Conditioning</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-key">Location</span>
+                        <span class="info-val">India</span>
+                    </div>
+                </div>
+
+                <br>
+                <a href="#contact" class="btn-solid">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════ CONTACT ═══════════ -->
+    <section id="contact" style="background: var(--charcoal);">
+        <div class="section-tag">Get In Touch</div>
+        <h2 class="section-title">START TODAY</h2>
+        <div class="section-line"></div>
+
+        <div class="contact-grid">
+            <!-- Left: Contact info -->
+            <div>
+                <p style="font-size:15px;font-weight:300;color:rgba(245,245,240,0.6);line-height:1.8;margin-bottom:40px;">
+                    Ready to transform your body and mindset? Reach out to Mohit directly
+                    and let's build a program that fits your life and crushes your goals.
+                </p>
+                <div class="contact-item">
+                    <div class="contact-icon">✉️</div>
+                    <div>
+                        <div class="contact-label">Email</div>
+                        <div class="contact-val">mohit381330@gmail.com</div>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">👤</div>
+                    <div>
+                        <div class="contact-label">Coach</div>
+                        <div class="contact-val">Mohit</div>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">🕐</div>
+                    <div>
+                        <div class="contact-label">Hours</div>
+                        <div class="contact-val">Mon–Sat &nbsp;|&nbsp; 6 AM – 9 PM</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Form -->
+            <div class="contact-form">
+                <div class="form-row">
+                    <div class="form-field">
+                        <label>Your Name</label>
+                        <input type="text" placeholder="e.g. Rahul">
+                    </div>
+                    <div class="form-field">
+                        <label>Your Email</label>
+                        <input type="email" placeholder="you@email.com">
+                    </div>
+                </div>
+                <div class="form-field">
+                    <label>Subject</label>
+                    <input type="text" placeholder="Personal Training / Online Coaching ...">
+                </div>
+                <div class="form-field">
+                    <label>Message</label>
+                    <textarea placeholder="Tell Mohit about your goals..."></textarea>
+                </div>
+                <div>
+                    <button class="btn-solid" style="padding:14px 36px;font-size:13px;">Send Message</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════ FOOTER ═══════════ -->
+    <footer>
+        <div class="footer-brand">MOHIT'S <span>FITNESS</span></div>
+        <div class="footer-copy">&copy; 2026 Mohit's Fitness. All rights reserved.</div>
+    </footer>
+
+</body>
+</html>
