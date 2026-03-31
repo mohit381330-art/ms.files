@@ -1,0 +1,352 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* FIX: overflow rokta hai */
+}
+
+img {
+    width: 200px;
+    height: 80px;
+    border: 2px solid black;
+}
+
+ul {
+    display: flex;
+    flex-wrap: wrap; /* FIX: mobile pe wrap hogi */
+    margin: 10px 2px;
+    list-style: none;
+    gap: 4px;
+}
+
+li {
+    font-size: 1.5rem;
+}
+
+a {
+    color: white;
+    padding: 2px 88px; /* FIX: 84px tha — bahut zyada, overflow hota tha */
+    text-decoration: none;
+    font-weight: bolder;
+    display: block;
+}
+
+a:hover {
+    color: blue;
+    background-color: white;
+}
+
+/* ─── NAVBAR ─────────────────────────────────────── */
+#navbar {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap; /* FIX: mobile pe items neeche jayenge */
+    height: auto;
+    background-color: black;
+    border: 2px solid purple;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+#navbar::before {
+    content: "";
+    background-color: black;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.89;
+}
+
+#logo {
+    margin-right: auto;
+}
+
+/* ─── HOME SECTION ───────────────────────────────── */
+.hfirst {
+    color: blue;
+    border: 2px solid black;
+    background-color: black;
+    border-radius: 50px;
+    font-size: 2rem; /* FIX: 3rem tha — mobile pe kam kiya */
+    font-weight: bolder;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    padding: 12px;
+}
+
+.hsecond {
+    font-size: 2.5rem; /* FIX: 4rem tha */
+    color: black;
+    text-align: center;
+    font-weight: bolder;
+    font-family: 'Times New Roman', Times, serif;
+    border-radius: 100px;
+    background-color: dimgray;
+    padding: 5px;
+    border: 2px solid black;
+}
+
+p {
+    color: white;
+    font-family: 'Baloo Bhai', cursive;
+    font-size: 1.2rem; /* FIX: 2rem tha — mobile pe readable size */
+    padding: 3px 12px;
+    border: 3px solid red;
+    background-color: black;
+    border-radius: 50px;
+    text-align: center;
+}
+
+#home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px; /* FIX: 35px fixed tha, percentage better hai */
+    min-height: 60vh;
+    position: relative;
+    gap: 16px;
+}
+
+#home::before {
+    content: "";
+    background: url('https://tse1.mm.bing.net/th/id/OIP.LdbEMpucd3-auAfc9C-F9AHaEo?rs=1&pid=ImgDetMain&o=7&rm=3') no-repeat center center / cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+}
+
+/* ─── BUTTON ─────────────────────────────────────── */
+.btn {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    background-color: red;
+    border: 3px solid black;
+    border-radius: 22px;
+    color: blue;
+    cursor: pointer;
+}
+
+.btn:hover {
+    font-size: 1.4rem;
+    color: green;
+    background-color: black;
+    border-radius: 50px;
+}
+
+/* ─── SERVICES ───────────────────────────────────── */
+.services-container {
+    padding: 10px;
+}
+
+#services {
+    margin: 5px 0;
+    display: flex;
+    flex-wrap: wrap; /* FIX: mobile pe items wrap honge */
+    gap: 10px;
+    justify-content: center;
+    background: url('https://tse3.mm.bing.net/th/id/OIP.Ufw0goKNPwhSDqI2YCWTmgHaE8?rs=1&pid=ImgDetMain&o=7&rm=3') no-repeat center center / cover;
+    padding: 10px;
+}
+
+#services .box {
+    flex: 1 1 150px; /* FIX: fluid sizing — shrink/grow karega */
+    max-width: 200px;
+}
+
+#services .box img {
+    border: 2px solid black;
+    width: 100%;   /* FIX: fluid width */
+    height: 100px;
+    object-fit: cover;
+    display: block;
+}
+
+/* ─── CLIENTS ────────────────────────────────────── */
+#client-section {
+    position: relative;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap; /* FIX: logos wrap honge */
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+#client-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;   /* FIX: 2000px hardcoded tha — poori width */
+    height: 100%;  /* FIX: 550px hardcoded tha */
+    background: url('https://wallpaperaccess.com/full/2119.jpg') no-repeat center center / cover;
+    z-index: -1;
+    opacity: 1;
+}
+
+#client-section img {
+    width: 120px;  /* FIX: consistent client logo size */
+    height: 80px;
+    object-fit: contain;
+    border: 2px solid black;
+    background: white;
+}
+
+/* ─── CONTACT ────────────────────────────────────── */
+#contact {
+    position: relative;
+    padding: 40px 20px;
+    min-height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: green;
+    overflow: hidden;
+}
+
+#contact::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;    /* FIX: 500px hardcoded tha */
+    height: 100%;   /* FIX: 250px hardcoded tha */
+    z-index: -1;
+    opacity: 0.7;
+    background: url('https://img.freepik.com/premium-photo/contact-us-icons-virtual-screen_218381-12611.jpg') no-repeat center center / cover;
+}
+
+/* ─── FOOTER ─────────────────────────────────────── */
+footer {
+    background: black;
+    color: white;
+    padding: 9px 20px;
+    text-align: center;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* ════════════════════════════════════════════════════
+   MEDIA QUERIES — MOBILE (max-width: 768px)
+   ════════════════════════════════════════════════════ */
+@media screen and (max-width: 768px) {
+
+    /* Navbar — logo upar, links neeche */
+    #navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 8px;
+    }
+
+    #logo {
+        margin-right: 0;
+        margin-bottom: 6px;
+    }
+
+    ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin: 4px 0;
+        gap: 2px;
+    }
+
+    li {
+        font-size: 1rem; /* FIX: mobile pe chhota */
+    }
+
+    a {
+        padding: 4px 10px;
+        font-size: 0.95rem;
+    }
+
+    /* Headings chhoti */
+    .hfirst {
+        font-size: 1.4rem;
+        border-radius: 20px;
+        padding: 8px;
+    }
+
+    .hsecond {
+        font-size: 1.6rem;
+        border-radius: 30px;
+    }
+
+    p {
+        font-size: 1rem;
+        border-radius: 20px;
+    }
+
+    /* Home section */
+    #home {
+        padding: 30px 12px;
+        min-height: 50vh;
+        gap: 12px;
+    }
+
+    /* Services */
+    #services .box {
+        flex: 1 1 120px;
+        max-width: 160px;
+    }
+
+    /* Client logos */
+    #client-section img {
+        width: 90px;
+        height: 60px;
+    }
+
+    /* Button */
+    .btn {
+        font-size: 1rem;
+        padding: 8px 16px;
+    }
+
+    .btn:hover {
+        font-size: 1.1rem;
+    }
+}
+
+/* ════════════════════════════════════════════════════
+   MEDIA QUERIES — SMALL MOBILE (max-width: 480px)
+   ════════════════════════════════════════════════════ */
+@media screen and (max-width: 480px) {
+
+    .hfirst {
+        font-size: 1.1rem;
+    }
+
+    .hsecond {
+        font-size: 1.3rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
+
+    li {
+        font-size: 0.85rem;
+    }
+
+    a {
+        padding: 4px 8px;
+    }
+
+    #services .box {
+        flex: 1 1 100px;
+    }
+
+    #client-section img {
+        width: 75px;
+        height: 50px;
+    }
+}
