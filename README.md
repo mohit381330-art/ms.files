@@ -36,15 +36,13 @@ live-attendance-calculator/
 ---
 
 ## ▶️ How to Use
-
 1. **Clone or download** this repository
    ```bash
-   git clone https://github.com/your-username/live-attendance-calculator.git
+  
    ```
 2. Open `index.html` in any modern browser — **no server or installation needed**
-3. Add your subject names
-4. For each class, click **Present** or **Absent**
-5. Watch your **live attendance percentage** update instantly!
+3. just fill the details
+4. Watch your **live attendance percentage** only in one click update instantly!
 
 ---
 
@@ -61,31 +59,7 @@ Attendance % = (Classes Present / Total Classes) × 100
 ## 🎯 Use Cases
 
 - 🎓 Students tracking their own college attendance
-- 👨‍🏫 Teachers taking quick class attendance
 - 📌 Anyone who wants a simple, no-login attendance tool
-
----
-
-## 🧩 Future Improvements
-
-- [ ] Save attendance data to **LocalStorage**
-- [ ] Export attendance report as **PDF or CSV**
-- [ ] Set custom minimum attendance threshold
-- [ ] Date-wise attendance history
-- [ ] Dark mode support
-- [ ] PWA support for mobile use
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome! Here's how:
-
-1. Fork this repository
-2. Create a new branch (`git checkout -b feature/your-feature`)
-3. Commit your changes (`git commit -m 'Add some feature'`)
-4. Push to the branch (`git push origin feature/your-feature`)
-5. Open a **Pull Request**
 
 ---
 
