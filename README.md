@@ -37,8 +37,9 @@ live-attendance-calculator/
 
 ## ▶️ How to Use
 1.https://github.com/mohit381330-art/ms.files
-2. just fill the details
-3. Watch your **live attendance percentage** only in one click update instantly!
+2.copy this source code in vs code editor
+3. just fill the details
+4. Watch your **live attendance percentage** only in one click update instantly!
 
 ---
 
