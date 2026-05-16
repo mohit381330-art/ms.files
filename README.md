@@ -36,13 +36,9 @@ live-attendance-calculator/
 ---
 
 ## ▶️ How to Use
-1. **Clone or download** this repository
-   ```bash
-  https://github.com/mohit381330-art/ms.files
-   ```
-2. Open `index.html` in any modern browser — **no server or installation needed**
-3. just fill the details
-4. Watch your **live attendance percentage** only in one click update instantly!
+1.https://github.com/mohit381330-art/ms.files
+2. just fill the details
+3. Watch your **live attendance percentage** only in one click update instantly!
 
 ---
 
