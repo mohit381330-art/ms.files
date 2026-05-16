@@ -1,0 +1,102 @@
+# 📋 Live Attendance Calculator
+
+A simple and interactive **Live Attendance Calculator** built with **HTML, CSS, and JavaScript** that helps students or teachers track attendance in real time — no frameworks, no installation, just open and use!
+
+---
+
+## 🚀 Features
+
+- ➕ Add multiple subjects/classes dynamically
+- ✅ Mark attendance as **Present** or **Absent** per class
+- 📊 Live calculation of attendance percentage per subject
+- 🟢🔴 Color-coded status — green if attendance is sufficient, red if below threshold
+- 📈 Overall attendance summary across all subjects
+- 📱 Clean and responsive UI for all screen sizes
+
+---
+
+## 🛠️ Tech Stack
+
+| Technology | Purpose |
+|---|---|
+| HTML | Structure and layout |
+| CSS | Styling and responsive design |
+| JavaScript | Live attendance logic and DOM manipulation |
+
+---
+
+## 📂 Project Structure
+
+```
+live-attendance-calculator/
+│
+├── index.html      # Main HTML file
+├── style.css       # Stylesheet
+└── script.js       # Attendance logic
+```
+
+---
+
+## ▶️ How to Use
+
+1. **Clone or download** this repository
+   ```bash
+   git clone https://github.com/your-username/live-attendance-calculator.git
+   ```
+2. Open `index.html` in any modern browser — **no server or installation needed**
+3. Add your subject names
+4. For each class, click **Present** or **Absent**
+5. Watch your **live attendance percentage** update instantly!
+
+---
+
+## 📊 Attendance Formula
+
+```
+Attendance % = (Classes Present / Total Classes) × 100
+```
+
+> ⚠️ Attendance below **75%** is highlighted as insufficient (default threshold).
+
+---
+
+## 🎯 Use Cases
+
+- 🎓 Students tracking their own college attendance
+- 👨‍🏫 Teachers taking quick class attendance
+- 📌 Anyone who wants a simple, no-login attendance tool
+
+---
+
+## 🧩 Future Improvements
+
+- [ ] Save attendance data to **LocalStorage**
+- [ ] Export attendance report as **PDF or CSV**
+- [ ] Set custom minimum attendance threshold
+- [ ] Date-wise attendance history
+- [ ] Dark mode support
+- [ ] PWA support for mobile use
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Here's how:
+
+1. Fork this repository
+2. Create a new branch (`git checkout -b feature/your-feature`)
+3. Commit your changes (`git commit -m 'Add some feature'`)
+4. Push to the branch (`git push origin feature/your-feature`)
+5. Open a **Pull Request**
+
+---
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+---
+
+<div align="center">
+  Made with ❤️ using plain HTML, CSS &amp; JS — no frameworks needed!
+</div>
