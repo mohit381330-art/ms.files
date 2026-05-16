@@ -5,12 +5,10 @@ A simple and interactive **Live Attendance Calculator** built with **HTML, CSS, 
 ---
 
 ## 🚀 Features
-
-- ➕ Add multiple subjects/classes dynamically
-- ✅ Mark attendance as **Present** or **Absent** per class
-- 📊 Live calculation of attendance percentage per subject
-- 🟢🔴 Color-coded status — green if attendance is sufficient, red if below threshold
-- 📈 Overall attendance summary across all subjects
+- ✅ you cn also see how many lecture you can miss😂 and number of lectures that you should attend to reach your goal
+- 📊 Live calculation of attendece  by using user present,and total attended class
+- 🟢🔴 userfriendly interface
+- 📈 easy to use and undestnd
 - 📱 Clean and responsive UI for all screen sizes
 
 ---
