@@ -6,7 +6,7 @@ A simple and interactive **Live Attendance Calculator** built with **HTML, CSS, 
 
 ## 🚀 Features
 - ✅ you cn also see how many lecture you can miss😂 and number of lectures that you should attend to reach your goal
-- 📊 Live calculation of attendece  by using user present,and total attended class
+- 📊 Live calculation of attendece  by using total present,and total attended class
 - 🟢🔴 userfriendly interface
 - 📈 easy to use and undestnd
 - 📱 Clean and responsive UI for all screen sizes
@@ -49,7 +49,7 @@ live-attendance-calculator/
 Attendance % = (Classes Present / Total Classes) × 100
 ```
 
-> ⚠️ Attendance below **75%** is highlighted as insufficient (default threshold).
+> ⚠️ Attendance below **75%** gives alert🚨
 
 ---
 
