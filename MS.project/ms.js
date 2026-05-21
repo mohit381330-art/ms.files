@@ -4,7 +4,6 @@
     let gif = document.getElementById('gif');
     let currentSongIndex = 0;
     let songs = [
-        { songName: "NCS-MORTALS", filePath: "Warriyo, Laura Brehm - Mortals (feat. Laura Brehm) [NCS Release].mp3", coverPath: "covers/1.mp3" },
         { songName: "MONTEGEM-ALIQIMIA", filePath: "MONTAGEM ALQUIMIA - h6itam.mp3", coverPath: "covers/1.mp3" },
         { songName: "FUNK-SERENO", filePath: "FUNK SERENO - ICEDMANE.mp3", coverPath: "covers/3.mp3" },
         { songName: "SHIV AMITDHARA", filePath: "Sampoorna Shiv Amritwani Complete By Anuradha Paudwal Full Audio Song Juke Box I Shri Shiv Amritwani(MP3_160K).mp3", coverPath: "covers/5.mp3" },
