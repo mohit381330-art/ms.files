@@ -10,7 +10,7 @@ let songs = [
     { songName: "SHIV AMITDHARA", filePath: "Sampoorna Shiv Amritwani Complete By Anuradha Paudwal Full Audio Song Juke Box I Shri Shiv Amritwani(MP3_160K).mp3", },
     { songName: "MERI JINDGI SAWARI", filePath: "Tere Jaisa Yaar Kahan (Lyrical Video)  Kishore Kumar  Yaarana  Revibe  Hindi Songs.mp3" },
     { songName: "EAGLE SONG", filePath: "Wyr Gemi - Eagle-Downringtone.com.mp3" },
-    { songName: "WORKOUT HANUMAN CHALISA", filePath: "हनुमान चालीसा Hanuman Chalisa I GULSHAN KUMAR I HARIHARAN_ Full HD Video I Shree Hanuman Chalisa(MP3_160K).mp3" },
+    { songName: "HANUMAN CHALISA", filePath: "हनुमान चालीसा Hanuman Chalisa I GULSHAN KUMAR I HARIHARAN_ Full HD Video I Shree Hanuman Chalisa(MP3_160K).mp3" },
 ];
 
 let audioElement = new Audio();
