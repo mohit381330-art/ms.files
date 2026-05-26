@@ -5,7 +5,6 @@ let nextBtn = document.getElementById('nextbtn');
 let gif = document.getElementById('gif');
 let SongIndex = 0;
 let songs = [
-    { songName: "MONTAGEM-PEGADORA", filePath: "Rubikdice_-_MONTAGEM_PEGADORA_Slowed__@BaseNaija.mp3" },
     { songName: "FUNK-SERENO", filePath: "FUNK SERENO - ICEDMANE.mp3" },
     { songName: "SHIV AMITDHARA", filePath: "Sampoorna Shiv Amritwani Complete By Anuradha Paudwal Full Audio Song Juke Box I Shri Shiv Amritwani(MP3_160K).mp3", },
     { songName: "MERI JINDGI SAWARI", filePath: "Tere Jaisa Yaar Kahan (Lyrical Video)  Kishore Kumar  Yaarana  Revibe  Hindi Songs.mp3" },
