@@ -70,7 +70,7 @@ int main() {
     return 0;
 }
 
-// Pattern
+// Square Pattern
 #include<iostream>
 using namespace std;
 int main() {
