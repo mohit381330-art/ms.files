@@ -41,6 +41,9 @@ int main() {
     return 0;
 }
 
+//Bitwise operators 
+and,or,xOR,not, leftshift, nightshift
+
 // While loop
 #include<iostream>
 using namespace std;
