@@ -325,13 +325,19 @@ int main() {
     return 0;
 }
 
-//function declare & calling
+//Function understanding
 #include<iostream>
-using namespace std;            //function declaration
-int printHello() {
-    cout<<"Hello";
+using namespace std;
+int sum(int n) {
+    int sum=0;
+    for(int i=1;i<=n;i++) {
+        sum+=i;
+    }
+    return sum;
 }
 int main() {
-    printHello();               //function calling
-    return 0;
+    cout<<sum(100)<<endl;
+    cout<<sum(500)<<endl;
+    cout<<sum(1000)<<endl;
 }
+
