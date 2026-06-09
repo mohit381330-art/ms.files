@@ -325,4 +325,13 @@ int main() {
     return 0;
 }
 
-
+//function declare & calling
+#include<iostream>
+using namespace std;            //function declaration
+int printHello() {
+    cout<<"Hello";
+}
+int main() {
+    printHello();               //function calling
+    return 0;
+}
