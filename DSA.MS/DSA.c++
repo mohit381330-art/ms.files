@@ -1,4 +1,4 @@
-                                        // #DATA STRUCTURES AND ALGORITHMS
+                                        // #DSA(SOURCE-CODE)
 // Arithmetic operators
 #include<iostream>
 using namespace std;
