@@ -1,4 +1,4 @@
-                                        // #DSA(SOURCE-CODE)
+                                        // #DSA(CODE)
 // While loop
 #include<iostream>
 using namespace std;
