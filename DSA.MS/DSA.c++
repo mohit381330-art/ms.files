@@ -295,7 +295,7 @@ int main() {
     return 0;
 }
 
-//Function 
+//Function understanding
 #include<iostream>
 using namespace std;
 int sum(int n) {
@@ -327,7 +327,7 @@ int main() {
     return 0;
 }
 
-// Arrays
+// Array syntax
 #include<iostream>
 using namespace std;
 int main() {
@@ -338,3 +338,17 @@ int main() {
     cout<<marks[3]<<endl;
     return 0;
 }
+
+// loops in Array
+#include<iostream>
+using namespace std;
+int main() {
+    int marks[5]={23,34,54,65};
+    int size=5;
+    for(int i=0;i<size;i++) {
+        cout<<marks[i]<<endl;
+    }
+    return 0;
+}
+
+// Smallest or Largest in Array
