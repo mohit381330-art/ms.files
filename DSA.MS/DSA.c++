@@ -327,7 +327,7 @@ int main() {
     return 0;
 }
 
-// Array syntax
+// Array Syntax
 #include<iostream>
 using namespace std;
 int main() {
@@ -406,3 +406,50 @@ int main() {
 }
 
 // Linear Search In Array
+ #include<iostream>
+ using namespace std;
+ int linearSearch(int arr[],int length, int target) {
+    for(int i=0;i<length;i++) {
+        if(arr[i]==target)
+        return i;
+    }
+    return -1;
+ }
+ int main() {
+    int arr[]={4,5,6,8,10,12,14};
+    int length=7;
+    int target=10;
+    cout<<linearSearch(arr,length,target);
+    return 0;
+ }
+
+// Reverse of Array
+#include<iostream>
+using namespace std;
+void reverseArr(int arr[],int length) {
+   int start=0,end=length-1;
+   while(start<end) {
+      swap(arr[start],arr[end]);
+      start++,end--;
+   }
+}
+int main() { 
+   int arr[7]={1,2,3,4,5,6,7};
+   int length=7;
+   reverseArr(arr,length);
+   for(int i=0;i<length;i++) {
+      cout<<arr[i]<<endl;
+   }
+   cout<<endl;
+   return 0;
+}
+
+// Vector Syntax
+#include<iostream>
+#include<vector>
+using namespace std;
+int main() {
+   vector<int> vec={1,2,3};
+   cout<<vec[2]<<endl;
+   return 0;
+}
