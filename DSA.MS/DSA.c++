@@ -343,12 +343,66 @@ int main() {
 #include<iostream>
 using namespace std;
 int main() {
-    int marks[5]={23,34,54,65};
-    int size=5;
-    for(int i=0;i<size;i++) {
+    int marks[5]={22,44,55,66};
+    int length=4;
+    for(int i=0;i<length;i++) {
         cout<<marks[i]<<endl;
     }
     return 0;
 }
 
 // Smallest or Largest in Array
+#include<iostream>
+#include<climits>
+using namespace std;
+int main() {
+    int num[6]={144,534,234,123,-113,-222};
+    int length=6;
+    int smallest=INT_MAX;
+    for(int i=0;i<length;i++) {
+        if(num[i]<smallest) {
+            smallest=num[i];
+        }
+    }
+    cout<<"smallest="<<smallest<<endl;
+    return 0;
+}
+
+#include<iostream>
+#include<climits>
+using namespace std;
+int main() {
+    int num[6]={144,534,234,123,-113,-222};
+    int length=6;
+    int index;
+    int largest=INT_MIN;
+    for(int i=0;i<length;i++) {
+        if(num[i]>largest) {
+            largest=num[i];
+            index=i;                //to print the index of largest num
+        }
+    }
+    cout<<"largest="<<largest<<endl;
+    cout<<"index="<<index<<endl;      //to print the index of largest num
+    return 0;
+}
+
+// Pass by reference in Array
+#include<iostream>
+using namespace std;
+void changeArr(int arr[],int length) {
+    for(int i=0;i<length;i++) {
+        arr[i]=2*arr[i];
+    }
+}
+int main() {
+    int arr[]={11,24,55};
+    changeArr(arr,3);
+    for(int i=0;i<3;i++) {
+        cout<<arr[i]<<" ";
+    }
+    cout<<endl;
+    return 0;  
+}
+
+// Linear Search In Array
