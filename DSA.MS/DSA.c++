@@ -453,3 +453,53 @@ int main() {
    cout<<vec[2]<<endl;
    return 0;
 }
+
+// loops in vector
+#include<iostream>
+#include<vector>
+using namespace std;
+int main() {
+    vector<int> vec{1,2,3,4,5,6};
+    for(int i:vec) {
+        cout<<i<<endl;
+    }
+    return 0;
+}
+
+// MSS(Basics)
+#include<iostream>
+using namespace std;
+int main() {
+    int n=5;
+    int arr[5]={1,2,3,4,5};
+    for(int st=0;st<n;st++) {
+        for(int end=st;end<n;end++) {
+            for(int i=st;i<=end;i++) {
+                cout<<arr[i];
+            }
+            cout<<" ";
+        }
+        cout<<endl;
+    }
+    return 0;
+}
+
+// MSS(BRUTE FORCE APPROACH)
+#include<iostream>
+#include<climits>
+using namespace std;
+int main() {
+    int n=5;
+    int arr[5]={1,-33,-55,30,25};
+    int maxSum=INT_MIN;
+    for(int st=0;st<n;st++) {
+        int currentSum=0;
+        for(int end=st;end<n;end++) {
+             currentSum+=arr[end];
+            maxSum=max(currentSum,maxSum);
+        }
+    }
+    cout<<"Max sum="<<maxSum<<endl;
+    return 0;
+}
+
