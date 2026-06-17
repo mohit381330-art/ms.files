@@ -503,3 +503,22 @@ int main() {
     return 0;
 }
 
+// Kadane's Algorithm
+#include<iostream>
+#include<climits>
+using namespace std;
+int main() {
+    int arr[7]={1,2,-3,4,-6,7,-8};
+    int n=7;
+    int currentSum=0;
+    int maxSum=INT_MIN;
+    for(int i=0;i<n;i++) {
+        currentSum+=arr[i];
+        maxSum=max(currentSum,maxSum);
+    }
+    if(currentSum<0) {
+        currentSum=0;
+    }
+    cout<<"MSS:"<<maxSum<<endl;
+    return 0;
+}
