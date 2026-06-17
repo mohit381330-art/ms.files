@@ -1,5 +1,5 @@
                                         // #DSA(CODE)
-// While loop
+// loops understanding
 #include<iostream>
 using namespace std;
 int main() {
@@ -13,7 +13,6 @@ int main() {
     return 0;
 }
 
-// do while loop
 #include <iostream>
 using namespace std;
 
@@ -28,7 +27,6 @@ int main() {
     return 0;
 }
 
-//for loop
 #include<iostream>
 using namespace std;
 int main() {
