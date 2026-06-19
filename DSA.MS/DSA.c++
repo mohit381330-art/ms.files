@@ -482,7 +482,7 @@ int main() {
     return 0;
 }
 
-// MSS(BRUTE FORCE APPROACH)
+// MSS(BRUTE FORCE)
 #include<iostream>
 #include<climits>
 using namespace std;
@@ -501,7 +501,7 @@ int main() {
     return 0;
 }
 
-// Kadane's Algorithm
+// MSS(Kadane's Algorithm)
 #include<iostream>
 #include<climits>
 using namespace std;
@@ -521,14 +521,14 @@ int main() {
     return 0;
 }
 
-// Pair Sum 
+// Pair Sum (Brute-Force)
 #include<iostream>
 #include<vector>
 using namespace std;
 vector<int> pairSum(vector<int>nums,int target) {
     vector<int> ans;
     int n=4;
-    for(int i=0;i<n;i++) {
+    for(int i=0;i<n;i++) {  
         for(int j=i+1;j<n;j++) {
             if(nums[i]+nums[j]==target) {
                 ans.push_back(i);
@@ -537,12 +537,42 @@ vector<int> pairSum(vector<int>nums,int target) {
             }
         }
     }
-    return ans;
 }
 int main() {
     vector<int> nums={2,7,11,15};
     int target=26;
     vector<int> ans=pairSum(nums,target);
+    cout<<ans[0]<<", "<<ans[1]<<endl;
+    return 0;
+}
+
+// Pair Sum(optimal)
+#include<iostream>
+#include<vector>
+using namespace std;
+vector<int>pairSum(vector<int>nums,int target) {
+    vector<int>ans;
+    int n=3;
+    int i=0 ,j=n-1;
+    while(i<j) {
+        int pairSum=nums[i]+nums[j];
+        if(pairSum>target) {
+            j--;
+        }
+        else if(pairSum<target) {
+            i++;
+        } 
+        else{
+            ans.push_back(i);
+            ans.push_back(j);
+            return ans;
+        }
+    }
+}
+int main() { 
+    vector<int>nums{12,32,56};
+    int target=68;
+    vector<int>ans=pairSum(nums,target);
     cout<<ans[0]<<", "<<ans[1]<<endl;
     return 0;
 }
