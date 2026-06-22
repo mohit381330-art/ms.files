@@ -284,7 +284,7 @@ int main() {
 using namespace std;
 int sum(int n) {
     int sum=0;
-    for(int i=1;i<=n;i++) {
+    for(int i=0;i<=n;i++) {
         sum+=i;
     }
     return sum;
@@ -369,24 +369,6 @@ int main() {
     cout<<"largest="<<largest<<endl;
     cout<<"index="<<index<<endl;      //to print the index of largest num
     return 0;
-}
-
-// Pass by reference in Array
-#include<iostream>
-using namespace std;
-void changeArr(int arr[],int length) {
-    for(int i=0;i<length;i++) {
-        arr[i]=2*arr[i];
-    }
-}
-int main() {
-    int arr[]={11,24,55};
-    changeArr(arr,3);
-    for(int i=0;i<3;i++) {
-        cout<<arr[i]<<" ";
-    }
-    cout<<endl;
-    return 0;  
 }
 
 // Linear Search In Array
