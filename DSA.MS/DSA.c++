@@ -372,42 +372,38 @@ int main() {
 }
 
 // Linear Search In Array
- #include<iostream>
- using namespace std;
- int linearSearch(int arr[],int length, int target) {
-    for(int i=0;i<length;i++) {
-        if(arr[i]==target)
-        return i;
+#include<iostream>
+using namespace std;
+int main() {
+    int arr[] = {4, 5, 6, 8, 10, 12, 14};
+    int length = 7;
+    int target = 10;
+    int index = -1;
+    for (int i = 0; i < length; i++) {
+        if (arr[i] == target) {
+            index = i;
+        }
     }
-    return -1;
- }
- int main() {
-    int arr[]={4,5,6,8,10,12,14};
-    int length=7;
-    int target=10;
-    cout<<linearSearch(arr,length,target);
+    cout << index;
     return 0;
- }
+}
 
 // Reverse of Array
 #include<iostream>
 using namespace std;
-void reverseArr(int arr[],int length) {
-   int start=0,end=length-1;
-   while(start<end) {
-      swap(arr[start],arr[end]);
-      start++,end--;
-   }
-}
-int main() { 
-   int arr[7]={1,2,3,4,5,6,7};
-   int length=7;
-   reverseArr(arr,length);
-   for(int i=0;i<length;i++) {
-      cout<<arr[i]<<endl;
-   }
-   cout<<endl;
-   return 0;
+int main() {
+    int arr[7] = {1, 2, 3, 4, 5, 6, 7};
+    int length = 7;
+    int start = 0, end = length - 1;
+    while (start < end) {
+        swap(arr[start], arr[end]);
+        start++;
+        end--;
+    }
+    for (int i = 0; i < length; i++) {
+        cout << arr[i] << endl;
+    }
+    return 0;
 }
 
 // Vector Syntax
@@ -455,7 +451,7 @@ int main() {
     int length=7;
     int currentSum=0;
     int maxSum=INT_MIN;
-    for(int i=0;i<lwngth;i++) {
+    for(int i=0;i<length;i++) {
         currentSum+=arr[i];
         maxSum=max(currentSum,maxSum);
     }
@@ -466,59 +462,46 @@ int main() {
     return 0;
 }
 
-// Pair Sum (Brute-Force)
+// Pair Sum
 #include<iostream>
-#include<vector>
 using namespace std;
-vector<int> pairSum(vector<int>nums,int target) {
-    vector<int> ans;
-    int n=4;
-    for(int i=0;i<n;i++) {  
-        for(int j=i+1;j<n;j++) {
-            if(nums[i]+nums[j]==target) {
-                ans.push_back(i);
-                ans.push_back(j);
-                return ans;
-            }
-        }
-    }
-}
 int main() {
-    vector<int> nums={2,7,11,15};
-    int target=26;
-    vector<int> ans=pairSum(nums,target);
-    cout<<ans[0]<<", "<<ans[1]<<endl;
-    return 0;
-}
-
-// Pair Sum(optimal)
-#include<iostream>
-#include<vector> 
-using namespace std;
-vector<int>pairSum(vector<int>nums,int target) {
-    vector<int>ans;
-    int n=3;
-    int i=0 ,j=n-1;
-    while(i<j) {
-        int pairSum=nums[i]+nums[j];
-        if(pairSum>target) {
+    int nums[] = {2, 7, 11, 15};
+    int n = 4;
+    int target = 13;
+    int i = 0, j = n - 1;
+    while (i < j) {
+        int sum = nums[i] + nums[j];
+        if (sum > target) {
             j--;
-        }
-        else if(pairSum<target) {
+        } else if (sum < target) {
             i++;
-        } 
-        else{
-            ans.push_back(i);
-            ans.push_back(j);
-            return ans;
+        } else {
+            cout << i << " " << j << endl;
         }
     }
-}
-int main() { 
-    vector<int>nums{12,32,56};
-    int target=68;
-    vector<int>ans=pairSum(nums,target);
-    cout<<ans[0]<<", "<<ans[1]<<endl;
     return 0;
 }
 
+// Majority Element(Moore's Voting)
+#include<iostream>
+using namespace std;
+int main() {
+    int arr[5]={1,1,1,2,2};
+    int length=5;
+    int ans=0;
+    int freq=0;
+    for(int i=0;i<length;i++) {
+        if(freq==0) {
+            ans=arr[i];
+        }
+        if(ans==arr[i]) {
+            freq++;
+        }
+        else{
+            freq--;
+        }
+    }
+    cout<<ans;
+    return 0;
+}
