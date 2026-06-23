@@ -452,10 +452,10 @@ cout<<ans;
 using namespace std;
 int main() {
     int arr[7]={1,2,-3,4,-6,7,-8};
-    int n=7;
+    int length=7;
     int currentSum=0;
     int maxSum=INT_MIN;
-    for(int i=0;i<n;i++) {
+    for(int i=0;i<lwngth;i++) {
         currentSum+=arr[i];
         maxSum=max(currentSum,maxSum);
     }
