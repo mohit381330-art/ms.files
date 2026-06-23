@@ -471,13 +471,14 @@ int main() {
     int target = 13;
     int i = 0, j = n - 1;
     while (i < j) {
-        int sum = nums[i] + nums[j];
-        if (sum > target) {
+        int pairsum = nums[i] + nums[j];
+        if (pairsum > target) {
             j--;
-        } else if (sum < target) {
+        } else if (pairsum < target) {
             i++;
         } else {
             cout << i << " " << j << endl;
+            break;
         }
     }
     return 0;
