@@ -432,6 +432,20 @@ int main() {
     return 0;
 }
 
+// Single Number
+#include<iostream>
+#include<vector>
+using namespace std;
+int main() {
+    int ans=0;
+    int arr[4]={2,2,2,4};
+for(int i:arr) {
+    ans^=i;
+}
+cout<<ans;
+    return 0;
+}
+
 // MSS(Basics)
 #include<iostream>
 using namespace std;
