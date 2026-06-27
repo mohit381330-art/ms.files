@@ -1,0 +1,159 @@
+// Array Syntax
+#include<iostream>
+using namespace std;
+int main() {
+    int marks[5]={11,32,44,55,64};
+    cout<<marks[0]<<endl;
+    cout<<marks[1]<<endl;
+    cout<<marks[2]<<endl;
+    cout<<marks[3]<<endl;
+    return 0;
+}
+
+// loops in Array
+#include<iostream>
+using namespace std;
+int main() {
+    int marks[5]={22,44,55,66};
+    int length=4;
+    for(int i=0;i<length;i++) {
+        cout<<marks[i]<<endl;
+    }
+    return 0;
+}
+
+// Smallest or Largest in Array
+#include<iostream>
+#include<climits>
+using namespace std;
+int main() {
+    int num[6]={144,534,234,123,-113,-222};
+    int length=6;
+    int smallest=INT_MAX;
+    for(int i=0;i<length;i++) {
+        if(num[i]<smallest) {
+            smallest=num[i];
+        }
+    }
+    cout<<"smallest="<<smallest<<endl;
+    return 0;
+}
+
+#include<iostream>
+#include<climits>
+using namespace std;
+int main() {
+    int num[6]={144,534,234,123,-113,-222};
+    int length=6;
+    int index;
+    int largest=INT_MIN;
+    for(int i=0;i<length;i++) {
+        if(num[i]>largest) {
+            largest=num[i];
+            index=i;                //to print the index of largest num
+        }
+    }
+    cout<<"largest="<<largest<<endl;
+    cout<<"index="<<index<<endl;      //to print the index of largest num
+    return 0;
+}
+
+// Linear Search In Array
+#include<iostream>
+using namespace std;
+int main() {
+    int arr[] = {4, 5, 6, 8, 10, 12, 14};
+    int length = 7;
+    int target = 10;
+    int index = -1;
+    for (int i = 0; i < length; i++) {
+        if (arr[i] == target) {
+            index = i;
+        }
+    }
+    cout << index;
+    return 0;
+}
+
+// Reverse of Array
+#include<iostream>
+using namespace std;
+int main() {
+    int arr[7] = {1, 2, 3, 4, 5, 6, 7};
+    int length = 7;
+    int start = 0, end = length - 1;
+    while (start < end) {
+        swap(arr[start], arr[end]);
+        start++;
+        end--;
+    }
+    for (int i = 0; i < length; i++) {
+        cout << arr[i] << endl;
+    }
+    return 0;
+}
+
+// MSS(Kadane's Algorithm)
+#include<iostream>
+#include<climits>
+using namespace std;
+int main() {
+    int arr[7]={1,2,-3,4,-6,7,-8};
+    int length=7;
+    int currentSum=0;
+    int maxSum=INT_MIN;
+    for(int i=0;i<length;i++) {
+        currentSum+=arr[i];
+        maxSum=max(currentSum,maxSum);
+    }
+    if(currentSum<0) {
+        currentSum=0;
+    }
+    cout<<"MSS:"<<maxSum<<endl;
+    return 0;
+}
+
+// Pair Sum
+#include<iostream>
+using namespace std;
+int main() {
+    int nums[] = {2, 7, 11, 15};
+    int n = 4;
+    int target = 13;
+    int i = 0, j = n - 1;
+    while (i < j) {
+        int pairsum = nums[i] + nums[j];
+        if (pairsum > target) {
+            j--;
+        } else if (pairsum < target) {
+            i++;
+        } else {
+            cout << i << " " << j << endl;
+            break;
+        }
+    }
+    return 0;
+}
+
+// Majority Element(Moore's Voting)
+#include<iostream>
+using namespace std;
+int main() {
+    int arr[5]={1,1,1,2,2};
+    int length=5;
+    int ans=0;
+    int freq=0;
+    for(int i=0;i<length;i++) {
+        if(freq==0) {
+            ans=arr[i];
+        }
+        if(ans==arr[i]) {
+            freq++;
+        }
+        else{
+            freq--;
+        }
+    }
+    cout<<ans;
+    return 0;
+}
