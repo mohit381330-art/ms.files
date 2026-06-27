@@ -1,28 +1,3 @@
-                                        // #DSA(CODE)
-// loops understanding
-#include<iostream>
-using namespace std;
-int main() {
-    int n;
-    cin>>n;
-    int i=1;
-    while(i<=n) {
-        cout<<i<<" ";
-        i++;
-    }
-    return 0;
-}
-
-#include<iostream>
-using namespace std;
-int main() {
-    int n;
-    cin>>n;
-    for(int i=1;i<=n;i++) {
-        cout<<i;
-    }
-    return 0;
-}
 
 // Square Pattern
 #include<iostream>
@@ -279,37 +254,7 @@ int main() {
     return 0;
 }
 
-//Function understanding
-#include<iostream>
-using namespace std;
-int sum(int n) {
-    int sum=0;
-    for(int i=0;i<=n;i++) {
-        sum+=i;
-    }
-    return sum;
-}
-int main() {
-    cout<<sum(100)<<endl;
-    cout<<sum(500)<<endl;
-    cout<<sum(1000)<<endl;
-}
 
-#include<iostream>
-using namespace std;
-long long fact(int n) {
-    long long fact=1;
-    for(int i=1;i<=n;i++) {
-        fact*=i;
-    }
-    return fact;
-}
-int main() {
-    int n;
-    cin>>n;
-    cout<<fact(n)<<endl;
-    return 0;
-}
 
 // Array Syntax
 #include<iostream>
