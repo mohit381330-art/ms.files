@@ -1,5 +1,3 @@
-// EXECUTION
-// Starts from callbacks
 
 /*============ toggle icon navbar =========*/
 let menuicon=document.querySelector('#menu-icon');
