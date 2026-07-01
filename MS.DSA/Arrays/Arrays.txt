@@ -117,18 +117,18 @@ int main() {
 #include<iostream>
 using namespace std;
 int main() {
-    int nums[] = {2, 7, 11, 15};
+    int nums[4] = {2, 7, 11, 15};
     int n = 4;
-    int target = 13;
-    int i = 0, j = n - 1;
-    while (i < j) {
-        int pairsum = nums[i] + nums[j];
+    int target = 18;
+    int start = 0, end = n - 1;
+    while (start < end) {
+        int pairsum = nums[start] + nums[end];
         if (pairsum > target) {
-            j--;
+            end--;
         } else if (pairsum < target) {
-            i++;
+            start++;
         } else {
-            cout << i << " " << j << endl;
+            cout << start << " " << end << endl;
             break;
         }
     }
