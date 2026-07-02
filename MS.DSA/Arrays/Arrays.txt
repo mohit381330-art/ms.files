@@ -94,24 +94,16 @@ int main() {
 }
 
 // MSS(Kadane's Algorithm)
-#include<iostream>
-#include<climits>
-using namespace std;
-int main() {
-    int arr[7]={1,2,-3,4,-6,7,-8};
-    int length=7;
-    int currentSum=0;
-    int maxSum=INT_MIN;
-    for(int i=0;i<length;i++) {
-        currentSum+=arr[i];
-        maxSum=max(currentSum,maxSum);
+int currentsum=0,maxsum=INT_MIN;
+        for(int i=0;i<nums.size();i++) {
+            currentsum+=nums[i];
+            maxsum=max(currentsum,maxsum);
+            if(currentsum<0) {
+                currentsum=0;
+            }
+        }
+        return maxsum;
     }
-    if(currentSum<0) {
-        currentSum=0;
-    }
-    cout<<"MSS:"<<maxSum<<endl;
-    return 0;
-}
 
 // Pair Sum
 #include<iostream>
@@ -136,27 +128,20 @@ int main() {
 }
 
 // Majority Element(Moore's Voting)
-#include<iostream>
-using namespace std;
-int main() {
-    int arr[5]={1,1,1,2,2};
-    int length=5;
-    int ans=0;
-    int repeat=0;
-    for(int i=0;i<length;i++) {
-        if(repeat==0) {
-            ans=arr[i];
+   int ans=0,repeat=0;
+        for(int i=0;i<nums.size();i++) {
+            if(repeat==0) {
+                ans=nums[i];
+            }
+            if(ans==nums[i]){
+                repeat++;
+            }
+            else{
+                repeat--;
+            }
         }
-        if(ans==arr[i]) {
-            repeat++;
-        }
-        else{
-            repeat--;
-        }
+        return ans;
     }
-    cout<<ans;
-    return 0;
-}
 
 //Compute x^n
 if(x==0) {
