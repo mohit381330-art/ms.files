@@ -1,4 +1,3 @@
-/* ===== EXECUTION ===== */
 
 /* ----- Menu Icon Toggle (Mobile Navbar) ----- */
 let menuIcon = document.querySelector('#menu-icon');
