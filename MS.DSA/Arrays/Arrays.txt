@@ -171,3 +171,18 @@ while(binForm>0) {
         return maxProfit;
 
 //Container with most water
+     int n = height.size();
+        int lp = 0, rp = n - 1, maxwater = 0;
+        while (lp < rp) {
+            int wd = rp - lp;
+            int ht = min(height[lp], height[rp]);
+            int currwater = wd * ht;
+            maxwater = max(currwater, maxwater);
+            if (height[lp] < height[rp]) {
+                lp++;
+            } else {
+                rp--;
+            }
+        }
+        return maxwater;
+    }
