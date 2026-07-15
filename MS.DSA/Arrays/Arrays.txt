@@ -1,5 +1,5 @@
 
-// 1. Array Syntax
+//  Array Syntax
 int main() {
     int marks[] = {11, 32, 44, 55, 64};
     cout << marks[0] << endl;
@@ -9,7 +9,7 @@ int main() {
     return 0;
 }
 
-// 2. Loops in Array
+//  Loops in Array
 int main() {
     int marks[] = {22, 44, 55, 66};
     int length = 4;
@@ -19,7 +19,7 @@ int main() {
     return 0;
 }
 
-// 3. Smallest in Array
+//  Smallest in Array
 int main() {
     int num[] = {144, 534, 234, 123, -113, -222};
     int length = 6;
@@ -33,7 +33,7 @@ int main() {
     return 0;
 }
 
-// 4. Largest in Array (with index)
+//  Largest in Array (with index)
 int main() {
     int num[] = {144, 534, 234, 123, -113, -222};
     int length = 6;
@@ -50,7 +50,7 @@ int main() {
     return 0;
 }
 
-// 5. Linear Search in Array
+//  Linear Search in Array
 int main() {
     int arr[] = {4, 5, 6, 8, 10, 12, 14};
     int length = 7;
@@ -65,7 +65,7 @@ int main() {
     return 0;
 }
 
-// 6. Reverse of Array
+//  Reverse of Array
 int main() {
     int arr[] = {1, 2, 3, 4, 5, 6, 7};
     int length = 7;
@@ -84,7 +84,7 @@ int main() {
     return 0;
 }
 
-// 7. MSS (Kadane's Algorithm)
+//  MSS (Kadane's Algorithm)
 class Solution {
 public:
     int maxSubArray(vector<int>& nums) {
@@ -100,7 +100,7 @@ public:
     }
 };
 
-// 8. Pair Sum
+//  Pair Sum
 int main() {
     int nums[] = {2, 7, 11, 15};
     int n = 4;
@@ -120,7 +120,7 @@ int main() {
     return 0;
 }
 
-// 9. Majority Element (Moore's Voting)
+//  Majority Element (Moore's Voting)
 class Solution {
 public:
     int majorityElement(vector<int>& nums) {
@@ -139,7 +139,7 @@ public:
     }
 };
 
-// 10. Compute x^n
+//  Compute x^n
 class Solution {
 public:
     double myPow(double x, int n) {
@@ -163,7 +163,7 @@ public:
     }
 };
 
-// 11. Stock Buy and Sell
+//  Stock Buy and Sell
 class Solution {
 public:
     int maxProfit(vector<int>& prices) {
@@ -176,7 +176,7 @@ public:
     }
 };
 
-// 12. Container With Most Water
+//  Container With Most Water
 class Solution {
 public:
     int maxArea(vector<int>& height) {
@@ -196,3 +196,24 @@ public:
         return maxwater;
     }
 };
+
+//Product of array except self
+      int n=nums.size();
+        vector<int>ans(n,1);
+        vector<int>prefix(n,1);
+        vector<int>suffix(n,1);
+
+        // prefix
+        for(int i=1;i<n;i++) {
+            prefix[i]=prefix[i-1]*nums[i-1];
+
+        }
+        // suffix
+        for(int i=n-2;i>=0;i--) {
+            suffix[i]=suffix[i+1]*nums[i+1];
+        }
+        for(int i=0;i<n;i++) {
+            ans[i]=prefix[i]*suffix[i];
+        }
+        return ans;
+    }
