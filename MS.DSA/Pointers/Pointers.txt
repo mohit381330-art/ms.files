@@ -3,10 +3,11 @@ using namespace std;
 int main() {
     int a=55;
     int*ptr=&a;
+    cout<<a<<endl;
+    cout<<&a<<endl;
     cout<<ptr<<endl;        //value of ptr
     cout<<&ptr<<endl;       //address of ptr
-    cout<<*ptr<<endl;       //value at ptr
-    cout<<&a<<endl;         // address of a
+    cout<<*ptr<<endl;       //value at ptr        
     return 0;
 }
 
