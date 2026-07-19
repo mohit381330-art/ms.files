@@ -19,6 +19,7 @@ int main() {
     int a=55;
     int *ptr1=&a;
     int **ptr2=&ptr1;
+    cout<<&a<<endl;
     cout<<ptr1<<endl;
     cout<<&ptr1<<endl;
     cout<<*ptr1<<endl;
@@ -26,5 +27,10 @@ int main() {
     cout<<&ptr2<<endl;
     cout<<*ptr2<<endl;
     cout<<**ptr2<<endl;
+    // dereference operator(*)
+    cout<<*(&a)<<endl;
+    cout<<*(ptr1)<<endl;
+    cout<<*(ptr2)<<endl;
+    cout<<**(ptr2)<<endl;
     return 0;
 }
