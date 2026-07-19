@@ -28,6 +28,10 @@ int main() {
     cout<<*ptr2<<endl;
     cout<<**ptr2<<endl;
     // dereference operator(*)
+    cout<<*(&a)<<endl;
+cout<<*(ptr1)<<endl;
+cout<<*(ptr2)<<endl;
+cout<<**(ptr2)<<endl;
 
     //Null pointer
     #include<iostream>
@@ -38,5 +42,28 @@ int main() {
     return 0;
 }
 
+//Pass by reference
+#include<iostream>
+using namespace std;
+void changeA(int*ptr) {
+    *ptr=20;
+}
+int main() {
+    int a=10;
+    changeA(&a);
+    cout<<"inside main fxn:"<<a<<endl;
+    return 0;
+}
 
+//pass by alias
+#include<iostream>
+using namespace std;
+void changeB(int &b) {
+    b=20;
+}
+int main() {
+    int a=10;
+    changeB(a);
+    cout<<"inside main fxn:"<<a<<endl;
+    return 0;
 }
