@@ -55,21 +55,20 @@ int main() {
     return 0;
 }
 
-//pass by alias
+//pass by reference using alias
 #include<iostream>
 using namespace std;
-void changeB(int &b) {
+void changeA(int &b) {
     b=20;
 }
 int main() {
     int a=10;
-    changeB(a);
+    changeA(a);
     cout<<"inside main fxn:"<<a<<endl;
     return 0;
 }
 
 //array pointer and pointer arithmetic
-//pointer arithmetic
 #include<iostream>
 using namespace std;
 int main() {
