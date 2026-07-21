@@ -47,7 +47,7 @@ window.onscroll = () => {
 /* ----- Typed.js Animated Text ----- */
 if (typeof Typed !== 'undefined') {
     const typed = new Typed('.multiple-text', {
-        strings: ['Frontend Developer', 'Web Designer',],
+        strings: ['Frontend Developer', 'Web Developer',],
         typeSpeed: 100,
         backSpeed: 100,
         backDelay: 1000,
