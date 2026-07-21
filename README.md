@@ -1,4 +1,4 @@
-# 🌐 Mohit Saini | Portfolio Website
+# 🌐 Mohit Saini | Portfolio
 
 A clean, responsive personal portfolio website built to showcase my work, skills, and services as a **Frontend Developer**. The site highlights my projects, background, and provides an easy way for visitors to get in touch.
 
