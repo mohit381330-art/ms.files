@@ -1,34 +1,25 @@
-// Vector Syntax
 #include <iostream>
-#include <vector>
 using namespace std;
 int main() {
-    vector<int> vec = {1, 2, 3};
-    cout << vec[2] << endl;
+    int a = 10;
+    int *ptr = &a;      
+    cout << "a = " << a << endl;
+    cout << "*ptr (value at ptr) = " << *ptr << endl;
+    *ptr = 20;           
+    cout << "a after *ptr=20 -> " << a << endl;
     return 0;
 }
 
-// Loops in Vector
-#include <iostream>
-#include <vector>
-using namespace std;
-int main() {
-    vector<int> vec = {1, 2, 3, 4, 5, 6};
-    for (int i : vec) {
-        cout << i << endl;
-    }
-    return 0;
-}
-
-// Single Number
 #include <iostream>
 using namespace std;
 int main() {
-    int ans = 0;
-    int arr[] = {2, 2, 2, 4};
-    for (int i : arr) {
-        ans ^= i;
-    }
-    cout << ans << endl;
+    int a = 10;
+    int *ptr1 = &a;        
+    int **ptr2 = &ptr1;    
+    cout << "a = " << a << endl;
+    cout << "*ptr1 = " << *ptr1 << endl;
+    cout << "**ptr2 = " << **ptr2 << endl;
+    **ptr2 = 99;            
+    cout << "a after **ptr2=99 -> " << a << endl;
     return 0;
 }
