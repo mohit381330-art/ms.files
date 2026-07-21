@@ -1,62 +1,92 @@
-# 📋 Live Attendance Calculator
+# 🌐 Mohit Saini | Portfolio Website
 
-A simple and interactive **Live Attendance Calculator** built with **HTML, CSS, and JavaScript** that helps students or teachers track attendance in real time — no frameworks, no installation, just open and use!
+A clean, responsive personal portfolio website built to showcase my work, skills, and services as a **Frontend Developer**. The site highlights my projects, background, and provides an easy way for visitors to get in touch.
+
+🔗 **Live Demo:** [mohit-portf.vercel.app](https://mohit-portf.vercel.app/)
 
 ---
 
-## 🚀 Features
-- ✅ you cn also see how many lecture you can miss😂 and number of lectures that you should attend to reach your goal
-- 📊 Live calculation of attendece  by using total present,and total attended class
-- 🟢🔴 userfriendly interface
-- 📈 easy to use and undestnd
-- 📱 Clean and responsive UI for all screen sizes
+## 📸 Preview
+
+![Portfolio Preview](https://mohit-portf.vercel.app/1.png)
+
+---
+
+## ✨ Features
+
+- **Responsive Design** — Fully optimized for desktop, tablet, and mobile devices
+- **Smooth Navigation** — Single-page layout with anchor-based section scrolling (`Home`, `About`, `Services`, `Portfolio`, `Contact`)
+- **About Section** — Introduction and background as a Frontend Developer
+- **Services Section** — Overview of offerings, including:
+  - Web Development
+  - Video Editing
+- **Portfolio / Projects Section** — Showcase of featured work, including:
+  - **APC Calculator**
+- **Contact Section** — A simple way for visitors and potential clients/employers to send a message
+- **Resume Access** — Quick link to view/download resume
+- **Social Media Integration** — Icons linking to social/professional profiles
 
 ---
 
 ## 🛠️ Tech Stack
 
-| Technology | Purpose |
-|---|---|
-| HTML | Structure and layout |
-| CSS | Styling and responsive design |
-| JavaScript | Live attendance logic and DOM manipulation |
+- **HTML5** — Semantic page structure
+- **CSS3** — Styling and responsive layout
+- **JavaScript** — Interactivity and smooth scroll behavior
+- **Vercel** — Deployment and hosting
 
 ---
 
 ## 📂 Project Structure
 
 ```
-live-attendance-calculator/
-│
-├── index.html      # Main HTML file
-├── style.css       # Stylesheet
-└── script.js       # Attendance logic
+portfolio/
+├── index.html          # Main HTML file
+├── style.css            # Stylesheet
+├── script.js             # JavaScript functionality
+├── 1.png                 # Profile / hero image
+└── README.md
 ```
 
 ---
 
-## ▶️ How to Use
-1.https://github.com/mohit381330-art/ms.files
-2.Download this APC.html file
-3. just fill the details
-4. Watch your **live attendance percentage** only in one click update instantly!
+## 🚀 Getting Started
+
+Follow these steps to run the project locally:
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/<your-username>/<your-repo-name>.git
+   ```
+
+2. **Navigate to the project folder**
+   ```bash
+   cd <your-repo-name>
+   ```
+
+3. **Open in browser**
+   Simply open `index.html` in your browser, or use a live server extension (e.g., VS Code Live Server) for the best experience.
 
 ---
 
-## 📊 Attendance Formula
+## 🌍 Deployment
 
-```
-Attendance % = (Classes Present / Total Classes) × 100
-```
+This project is deployed using **[Vercel](https://vercel.com/)**. To deploy your own version:
 
-> ⚠️ Attendance below **75%** gives alert🚨
+1. Push your code to a GitHub repository
+2. Import the repository into Vercel
+3. Deploy — Vercel will automatically build and host your site
 
 ---
 
-## 🎯 Use Cases
+## 📬 Contact
 
-- 🎓 Students tracking their own college attendance
-- 📌 Anyone who wants a simple, no-login attendance tool
+Have a project in mind or want to collaborate? Feel free to reach out!
+
+- **Portfolio:** [mohit-portf.vercel.app](https://mohit-portf.vercel.app/)
+- **Email:** your-email@example.com
+- **LinkedIn:** [your-linkedin-profile](#)
+- **GitHub:** [your-github-profile](#)
 
 ---
 
@@ -66,6 +96,4 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
-<div align="center">
-  Made with ❤️ using plain HTML, CSS &amp; JS — no frameworks needed!
-</div>
+<p align="center">© 2026 Mohit Saini | All Rights Reserved</p>
