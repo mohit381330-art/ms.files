@@ -6,8 +6,6 @@ A clean, responsive personal portfolio website built to showcase my work, skills
 
 ---
 
-## 📸 Preview
-
 ![Portfolio Preview](https://mohit-portf.vercel.app/1.png)
 
 ---
