@@ -4,12 +4,6 @@ A clean, responsive personal portfolio website built to showcase my work, skills
 
 🔗 **Live Demo:** [mohit-portf.vercel.app](https://mohit-portf.vercel.app/)
 
----
-
-![Portfolio Preview](https://mohit-portf.vercel.app/1.png)
-
----
-
 ## ✨ Features
 
 - **Responsive Design** — Fully optimized for desktop, tablet, and mobile devices
