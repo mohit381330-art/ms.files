@@ -45,24 +45,7 @@ portfolio/
 ## 🚀 Getting Started
 
 Follow these steps to run the project locally:
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/<your-username>/<your-repo-name>.git
-   ```
-
-2. **Navigate to the project folder**
-   ```bash
-   cd <your-repo-name>
-   ```
-
-3. **Open in browser**
-   Simply open `index.html` in your browser, or use a live server extension (e.g., VS Code Live Server) for the best experience.
-
----
-
 ## 🌍 Deployment
-
 This project is deployed using **[Vercel](https://vercel.com/)**. To deploy your own version:
 
 1. Push your code to a GitHub repository
@@ -76,10 +59,7 @@ This project is deployed using **[Vercel](https://vercel.com/)**. To deploy your
 Have a project in mind or want to collaborate? Feel free to reach out!
 
 - **Portfolio:** [mohit-portf.vercel.app](https://mohit-portf.vercel.app/)
-- **Email:** your-email@example.com
-- **LinkedIn:** [your-linkedin-profile](#)
-- **GitHub:** [your-github-profile](#)
-
+- **Email:** mohit381330@gmail.com
 ---
 
 ## 📄 License
