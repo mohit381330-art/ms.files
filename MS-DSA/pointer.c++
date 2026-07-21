@@ -122,16 +122,15 @@ int main() {
 }
 
 // by alias
-#include <iostream>
+#include<iostream>
 using namespace std;
+void changeA(int &b) {
+    b=20;
+}
 int main() {
-    int a = 100;
-    int &b = a;    
-    cout << "a = " << a << ", b = " << b << endl;
-    b = 200;        
-    cout << "After b=200 -> a = " << a << ", b = " << b << endl;
-    a = 300;        
-    cout << "After a=300 -> a = " << a << ", b = " << b << endl;
+    int a=10;
+    changeA(a);
+    cout<<"inside main fxn:"<<a<<endl;
     return 0;
 }
 
