@@ -202,11 +202,9 @@ public:
         vector<int>ans(n,1);
         vector<int>prefix(n,1);
         vector<int>suffix(n,1);
-
         // prefix
         for(int i=1;i<n;i++) {
             prefix[i]=prefix[i-1]*nums[i-1];
-
         }
         // suffix
         for(int i=n-2;i>=0;i--) {
@@ -237,23 +235,21 @@ public:
     }
 
 // binary search
-int binarySearch(int arr[], int size, int target) {
-    int start = 0, end = size - 1;
-    while (start <= end) {
-        int mid = start+(end-start)/2;
-        if (arr[mid] == target) return mid;
-        else if (arr[mid] < target) start = mid + 1;
-        else end = mid - 1;
+class Solution {
+public:
+    int search(vector<int>& nums, int target) {
+        int st = 0;
+        int end = nums.size() - 1;
+        while (st <= end) {
+            int mid = st + (end - st) / 2;
+            if (nums[mid] > target) {
+                end = mid - 1;
+            } else if (nums[mid] < target) {
+                st = mid + 1;
+            } else {
+                return mid;
+            }
+        }
+        return -1;
     }
-    return -1;
-}
-int main() {
-    int arr[] = {2, 5, 8, 12, 16, 23, 38, 45, 56};
-    int target = 23;
-    int result = binarySearch(arr, 9, target);
-    if (result != -1)
-        cout << "Found at index " << result << endl;
-    else
-        cout << "Not found" << endl;
-    return 0;
-}
+};
