@@ -265,14 +265,14 @@ public:
                 return mid;
             }
             if (nums[st] <= nums[mid]) {
-                // left half is sorted
+                // Left half is sorted
                 if (nums[st] <= target && target <= nums[mid]) {
                     end = mid - 1;
                 } else {
                     st = mid + 1;
                 }
             } else {
-                // right half is sorted
+                // Right half is sorted
                 if (nums[mid] <= target && target <= nums[end]) {
                     st = mid + 1;
                 } else {
