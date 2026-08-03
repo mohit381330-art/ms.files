@@ -263,8 +263,8 @@ public:
             if (nums[mid] == target) {
                 return mid;
             }
+            // If left half sorted 
             if (nums[st] <= nums[mid]) {
-                // Left half is sorted
                 if (nums[st] <= target && target <= nums[mid]) {
                     end = mid - 1;
                 } else {
