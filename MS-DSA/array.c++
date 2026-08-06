@@ -292,9 +292,10 @@ public:
             int mid = st + (end - st) / 2;
             if (arr[mid - 1] < arr[mid] && arr[mid] > arr[mid + 1]) {
                 return mid;
-                // inc(right)
+                // left search
             } else if (arr[mid - 1] < arr[mid]) {
                 st = mid + 1;
+                // right search
             } else {
                 end = mid - 1;
             }
