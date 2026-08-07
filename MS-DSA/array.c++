@@ -303,3 +303,5 @@ public:
     return -1;
     }
 };
+
+// single element in sorted array
