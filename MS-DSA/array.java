@@ -88,28 +88,6 @@ class Solution {
     }
 }
 
-//  Pair Sum
-public class Main {
-    public static void main(String[] args) {
-        int[] nums = {2, 7, 11, 15};
-        int n = nums.length;
-        int target = 18;
-        int start = 0, end = n - 1;
-        while (start < end) {
-            int pairsum = nums[start] + nums[end];
-            if (pairsum > target) {
-                end--;
-            } else if (pairsum < target) {
-                start++;
-            } else {
-                System.out.println(start + " " + end);
-                break;
-            }
-        }
-    }
-}
-
-
 //  Majority Element (Moore's Voting)
 class Solution {
     public int majorityElement(int[] nums) {
