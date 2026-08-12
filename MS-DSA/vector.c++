@@ -1,34 +1,43 @@
 // Vector Syntax
-#include <iostream>
-#include <vector>
-using namespace std;
-int main() {
-    vector<int> vec = {1, 2, 3};
-    cout << vec[2] << endl;
-    return 0;
+import java.util.ArrayList;
+import java.util.Arrays;
+public class Main {
+    public static void main(String[] args) {
+        // C++: vector<int> vec = {1, 2, 3};
+        ArrayList<Integer> vec = new ArrayList<>(Arrays.asList(1, 2, 3));
+        
+        // C++: vec[2]
+        System.out.println(vec.get(2)); 
+    }
 }
+
 
 // Loops in Vector
-#include <iostream>
-#include <vector>
-using namespace std;
-int main() {
-    vector<int> vec = {1, 2, 3, 4, 5, 6};
-    for (int i : vec) {
-        cout << i << endl;
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+        ArrayList<Integer> vec = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6));
+        
+        // For-Each Loop (बिल्कुल C++ जैसा ही है)
+        for (int i : vec) {
+            System.out.println(i);
+        }
     }
-    return 0;
 }
 
+
 // Single Number
-#include <iostream>
-using namespace std;
-int main() {
-    int ans = 0;
-    int arr[] = {2, 2, 2, 4};
-    for (int i : arr) {
-        ans ^= i;
+public class Main {
+    public static void main(String[] args) {
+        int ans = 0;
+        int[] arr = {2, 2, 2, 4}; // जावा में एरे का सिंटैक्स
+        
+        for (int i : arr) {
+            ans ^= i; // XOR ऑपरेशन
+        }
+        
+        System.out.println(ans);
     }
-    cout << ans << endl;
-    return 0;
 }
