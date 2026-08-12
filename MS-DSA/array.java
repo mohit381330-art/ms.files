@@ -1,28 +1,4 @@
 
-//  Array Syntax
-public class Main {
-    public static void main(String[] args) {
-        int[] marks = {11, 32, 44, 55, 64};
-        System.out.println(marks[0]);
-        System.out.println(marks[1]);
-        System.out.println(marks[2]);
-        System.out.println(marks[3]);
-    }
-}
-
-
-//  Loops in Array
-public class Main {
-    public static void main(String[] args) {
-        int[] marks = {22, 44, 55, 66};
-        int length = marks.length; // Java में length वेरिएबल नहीं, प्रॉपर्टी होती है
-        for (int i = 0; i < length; i++) {
-            System.out.println(marks[i]);
-        }
-    }
-}
-
-
 //  Smallest in Array
 public class Main {
     public static void main(String[] args) {
