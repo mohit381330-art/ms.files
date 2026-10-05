@@ -44,7 +44,7 @@ window.onscroll = () => {
     navbar.classList.remove('active');
 };
 
-/* ----- Typed.js Animated Text ----- */
+/* ----- Typed.js----- */
 if (typeof Typed !== 'undefined') {
     const typed = new Typed('.multiple-text', {
         strings: ['Frontend Developer', 'Web Developer',],
