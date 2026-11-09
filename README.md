@@ -1,9 +1,4 @@
 # 🌐 Mohit Saini
-
-<p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0F172A,50:1D4ED8,100:06B6D4&height=220&section=header&text=Mohit%20Saini&fontSize=55&fontColor=FFFFFF&fontAlignY=38&animation=fadeIn&desc=Frontend%20Developer%20%7C%20Creative%20Developer&descAlignY=58&descSize=18" width="100%"/>
-</p>
-
 <p align="center">
   <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=22&duration=3000&pause=1200&color=38BDF8&center=true&vCenter=true&width=700&height=60&lines=Frontend+Developer;JavaScript+Developer;C%2B%2B+Programmer;Python+Enthusiast;Building+Modern+Web+Experiences" alt="Professional Typing Animation"/>
 </p>
