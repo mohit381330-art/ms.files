@@ -23,7 +23,7 @@
 - 📚 Continuously learning and building projects.
 ---
 
-## 🛠️ Tech Stack
+🛠️ Tech Stack
 <p align="center">
   <img src="https://skillicons.dev/icons?i=html,css,js&perline=3" />
 </p>
@@ -36,7 +36,7 @@
 <p align="center">
   <img src="https://skillicons.dev/icons?i=cpp,python" />
 </p>
-### 🔧 Tools
+🔧 Tools
 <p align="center">
   <img src="https://skillicons.dev/icons?i=git,github,vscode,vercel" />
 </p>
