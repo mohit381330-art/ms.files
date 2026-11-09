@@ -1,4 +1,4 @@
-# 🌐 Mohit Saini |
+# 🌐 Mohit Saini
 
 <p align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=200&section=header&text=Mohit%20Saini&fontSize=50&fontAlignY=35&animation=fadeIn&fontColor=ffffff" width="100%"/>
