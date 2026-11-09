@@ -24,19 +24,15 @@
 ---
 
 ## 🛠️ Tech Stack
-### 🌐 Frontend Development
 <p align="center">
   <img src="https://skillicons.dev/icons?i=html,css,js&perline=3" />
 </p>
-### ⚙️ Backend Development
 <p align="center">
   <img src="https://skillicons.dev/icons?i=nodejs,express&perline=2" />
 </p>
-### 🗄️ Database
 <p align="center">
   <img src="https://skillicons.dev/icons?i=mongodb,mysql&perline=2" />
 </p>
-### 💻 Programming Languages
 <p align="center">
   <img src="https://skillicons.dev/icons?i=cpp,python" />
 </p>
