@@ -1,4 +1,4 @@
-# 🌐 Mohit Saini | Frontend Developer
+# 🌐 Mohit Saini |
 
 <p align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=200&section=header&text=Mohit%20Saini&fontSize=50&fontAlignY=35&animation=fadeIn&fontColor=ffffff" width="100%"/>
@@ -59,14 +59,6 @@
 
 ---
 
-## 🚀 Featured Projects
-
-### 🧮 APC Calculator
-
-A calculator project designed to simplify APC calculations with a user-friendly interface.
-
-- **Technology:** HTML, CSS, JavaScript
-- **Project:** APC Calculator
 
 ### 🌐 Personal Portfolio
 
@@ -97,15 +89,7 @@ A responsive personal portfolio website showcasing skills, services, and project
   <img src="https://github-readme-streak-stats.herokuapp.com/?user=YOUR_GITHUB_USERNAME&theme=tokyonight&hide_border=true"/>
 </p>
 
----
 
-## 🐍 Contribution Snake
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_GITHUB_USERNAME/output/github-contribution-grid-snake.svg" alt="Contribution Snake Animation"/>
-</p>
-
----
 
 ## 🤝 Connect With Me
 
@@ -136,7 +120,7 @@ A responsive personal portfolio website showcasing skills, services, and project
 </p>
 
 <p align="center">
-  <b>✨ Building • Learning • Innovating ✨</b>
+  <b>✨  Learning • Building • Growing✨</b>
 </p>
 
 <p align="center">
