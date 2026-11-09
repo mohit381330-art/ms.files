@@ -4,7 +4,7 @@
 </p>
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=22&duration=3000&pause=1200&color=38BDF8&center=true&vCenter=true&width=700&height=60&lines=Frontend+Developer;JavaScript+Developer;C%2B%2B+Programmer;Python+Enthusiast;Building+Modern+Web+Experiences" alt="Professional Typing Animation"/>
+  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=22&duration=3000&pause=1200&color=38BDF8&center=true&vCenter=true&width=700&height=60&lines=Frontend+Developer;JavaScript+Developer;C%2B%2B+Programmer;Python;Building+Modern+Web+Experiences" alt="Professional Typing Animation"/>
 </p>
 
 <p align="center">
