@@ -20,15 +20,10 @@
 ---
 
 ## 👨‍💻 About Me
-
-- 🌐 Passionate about **Frontend Development** and modern web technologies.
 - 💻 Building responsive and interactive websites.
 - 🚀 Exploring backend development with **Node.js**.
 - 🧠 Improving programming skills with **C++ and Python**.
-- 🎨 Interested in modern UI/UX and smooth animations.
 - 📚 Continuously learning and building projects.
-- 🎯 Goal: Become a skilled Full Stack Developer.
-
 ---
 
 ## 🛠️ Tech Stack
