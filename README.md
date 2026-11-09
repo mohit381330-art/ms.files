@@ -36,7 +36,7 @@
 <p align="center">
   <img src="https://skillicons.dev/icons?i=cpp,python" />
 </p>
-### 🔧 Tools & Platforms
+### 🔧 Tools
 <p align="center">
   <img src="https://skillicons.dev/icons?i=git,github,vscode,vercel" />
 </p>
