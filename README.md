@@ -94,15 +94,6 @@ A responsive personal portfolio website showcasing skills, services, and project
 </p>
 
 ---
-
-## 👀 Profile Visitors
-
-<p align="center">
-  <img src="https://komarev.com/ghpvc/?username=YOUR_GITHUB_USERNAME&style=for-the-badge&color=orange&label=PROFILE+VIEWS"/>
-</p>
-
----
-
 <p align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=100&section=footer"/>
 </p>
