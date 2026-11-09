@@ -24,14 +24,9 @@
 ---
 
 ## 🛠️ Tech Stack
-
-### 🌐 Frontend Development
-
 <p align="center">
   <img src="https://skillicons.dev/icons?i=html,css,js" />
 </p>
-
-### ⚙️ Backend Development
 
 <p align="center">
   <img src="https://skillicons.dev/icons?i=nodejs" />
