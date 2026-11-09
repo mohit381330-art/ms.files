@@ -24,10 +24,7 @@
 ---
 
 ## 🛠️ Tech Stack
-<p align="center">
-  <img src="https://skillicons.dev/icons?i=html,css,js" />
-</p>
-
+v
 <p align="center">
   <img src="https://skillicons.dev/icons?i=nodejs" />
 </p>
