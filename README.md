@@ -20,7 +20,7 @@
 - 💻 Building responsive and interactive websites.
 - 🚀 Exploring backend development with **Node.js**.
 - 🧠 Improving programming skills with **C++ and Python**.
-- 📚 Continuously learning and building projects.
+- 📚 learning and building projects.
 ---
 
 🛠️ Tech Stack
