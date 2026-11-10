@@ -44,19 +44,11 @@
 ---
 
 
-### 🌐 Personal Portfolio
 
-A responsive personal portfolio website showcasing skills, services, and projects.
-
-- **Technology:** HTML, CSS, JavaScript
-- **Live Demo:** [Visit Portfolio](https://mohit-portf.vercel.app/)
-
----
 
 ## 💼 Services
 
 - 🌐 Web Development
-- 🎨 Frontend Development
 - 🎬 Video Editing
 - 📱 Responsive Website Design
 
