@@ -7,10 +7,6 @@
   <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=22&duration=3000&pause=1200&color=38BDF8&center=true&vCenter=true&width=700&height=60&lines=JavaScript+Developer;C%2B%2B+Programmer" alt="Professional Typing Animation"/>
 </p>
 
-<p align="center">
-  <a href="https://mohit-portf.vercel.app/">
-    <img src="https://img.shields.io/badge/Portfolio-Explore-0F172A?style=for-the-badge&logo=vercel&logoColor=white"/>
-  </a>
   <a href="mailto:mohit381330@gmail.com">
     <img src="https://img.shields.io/badge/Email-Connect-2563EB?style=for-the-badge&logo=gmail&logoColor=white"/>
   </a>
